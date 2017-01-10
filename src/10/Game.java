@@ -10,27 +10,35 @@ public class Game {
     private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
     /*commented so no errors -- does not compile yet bc no User.java or Computer.java have been written
-	public Game(boolean userGuesser) {
-	if (userGuesser) {
-	    _guesser = new User();
-	    _masterMind = new Computer();
-	    _correctAns=_masterMind.setFinal();
-	}
-	else {
-	    _guesser=new Computer();
-	    _masterMind=new User();
-	}
-	_turns=0;
-    }*/
+      public Game(boolean userGuesser) {
+      if (userGuesser) {
+      _guesser = new User();
+      _masterMind = new Computer();
+      _correctAns=_masterMind.setFinal();
+      }
+      else {
+      _guesser=new Computer();
+      _masterMind=new User();
+      }
+      _turns=0;
+      }*/
+
+    public int[][] getBoard() {
+	return _board;
+    }
+
+    public int[][] getPegs() {
+	return _pegs;
+    }
 
     
-	public static String searchColor(String key){
-	    for (int i=0; i<6; i++){
-		if (matching[i][1].equals(key))
-		    return matching[i][0];
-	    }
-	    return "";
+    public static String searchColor(String key){
+	for (int i=0; i<6; i++){
+	    if (matching[i][1].equals(key))
+		return matching[i][0];
 	}
+	return "";
+    }
     public static ArrayList<String> translatorToNum(ArrayList<String> input){
         ArrayList<String> output = new ArrayList<String>();
         for (int i=0; i<input.size(); i++){
