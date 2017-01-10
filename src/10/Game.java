@@ -38,6 +38,10 @@ public class Game {
         }
         return output; //NOTE: output is a string, so must still parse to get int
     }
+
+
+
+
     //testing
     public static void main(String[] args){
         String[] x = new String[] {"blue","brown","orange","purple","blue","yellow"};
