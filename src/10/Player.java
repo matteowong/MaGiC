@@ -23,8 +23,8 @@ public abstract class Player {
     public void setMasterOrGuesser(boolean b);
 
     //will set final guess
-    public int[] setFinal(int[] final) {
-	_finalAns=final;
+    public int[] setFinal(int[] fin) {
+	_finalAns=fin;
     }
 
 }

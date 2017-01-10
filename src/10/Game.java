@@ -12,8 +12,8 @@ public class Game {
     /*commented so no errors -- does not compile yet bc no User.java or Computer.java have been written
       public Game(boolean userGuesser) {
       if (userGuesser) {
-      _guesser = new User();
-      _masterMind = new Computer();
+      _guesser = new User(true);
+      _masterMind = new Computer(false);
       _correctAns=_masterMind.setFinal();
       }
       else {
