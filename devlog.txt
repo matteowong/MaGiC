@@ -1,0 +1,12 @@
+No name -> team effort
+
+1/5/17
+proposal and UML diagrams
+1/9/17
+Mateo: all files created, with no body. Finished all basic methods. Made UMLs. (something else..)
+Caleb: wrote trasnlator to convert from a color to a corresponding number
+Gilvir: began work on prompting the user
+1/10/17
+Matteo: Made flowchart. Helped general debugging, added constructor.
+Caleb: wrote GivePegs method, which checks a guess, and returns the correct pegs
+Gilver: finished prompt.java
