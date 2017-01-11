@@ -1,0 +1,23 @@
+MaGiC
+Caleb Smith-Salzberg, Gilvir Gill, Matteo Wong
+APCS pd1
+
+PHASE I: Make the user able to guess and the computer the mastermind
+1. Make abstract Player class with basic variables and methods needed to play (a game board, setting guesses, setting a correct answer, updating turn)
+2. Make a method to return number of pegs (hints to player of what is correct)
+3. Make User class that is able to make guesses and has a constructor
+4. Make Computer that can generate a code
+5. Make Game.java that runs the game by instantiating a Computer and a User and calling their methods within its own
+FINISH 1-5 by Wednesday, 11/11
+6. Make User interaction interface and have the game playable with the human User as the guesser
+FINISH 6 by 11/11 or 11/12
+
+PHASE II: Computer algorithm
+no definitive dates here, we aren't sure how long the Computer algorithm will take
+1. Make new constructors in User, Computer for when the User is the MasterMind and the Computer is the Guesser
+2. Make a way for the User to input a code
+3. Code computer algorithm -- use logic for first two colors then try to generalize for all colors. Has already been outlined on proposal but we need to turn it into code
+   a. This will be hard
+   b. pseudocode and KTS first
+4. Game.java that runs w/ the computer as the Guesser
+5. user interface
