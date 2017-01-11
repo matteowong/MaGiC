@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public abstract class Player {
-    protected static int[] _currGuess = {4,6,4,5}; 
-    protected static int[] _finalAns =  {15,14,4,4}; //correct
+    protected static int[] _currGuess = new int[4]; 
+    protected static int[] _finalAns = new int[4]; //correct
     protected int[] used = new int[4];
     protected int removeFromTempAns;
     protected int _currentTurn;
@@ -11,7 +11,10 @@ public abstract class Player {
     protected int[][] _pegsBoard;
 
     //setNextGuess() will be used to set the next guess of what the code is, will be run through Game class based on input from terminal
- //   public abstract int[] setGuess(int[] guess);
+    public int[] setGuess(int[] guess){
+	_currGuess=guess;
+	return guess;
+    }
 
 
     public boolean check(int val, int[] collection){
@@ -26,17 +29,17 @@ public abstract class Player {
     
     
     //will return the appropriate number/type of pegs based on the guess
-    public ArrayList<Integer> givePegs(){ //int[]
+    public int[] givePegs(){ //int[]
         int[] pegs = new int[4];
-	   int countPerf=0; //2
-	   int countAlmost=0; //1
-       for (int i=0; i<_currGuess.length; i++){
-           if (_currGuess[i]==_finalAns[i]){
+	int countPerf=0; //2
+	int countAlmost=0; //1
+	for (int i=0; i<_currGuess.length; i++){
+	    if (_currGuess[i]==_finalAns[i]){
                 _currGuess[i]=-11;
-               _finalAns[i]=-1;
+		_finalAns[i]=-1;
                 countPerf+=1;
-	   }
-       }
+	    }
+	}
         for (int i=0; i<_currGuess.length; i++){
             if (check(_currGuess[i], _finalAns) ){ 
                 countAlmost+=1;
@@ -56,19 +59,17 @@ public abstract class Player {
             }
             z+=1;
         }
-        ArrayList<Integer> t = new ArrayList<Integer>();
-        for (int i: pegs)
-            t.add(i);
-        return t;
-        }
+	return pegs;
+    }
     
     
-        //will set if instance of User or Computer is master or guesser
-//    public void setMasterOrGuesser(boolean b);
+    //will set if instance of User or Computer is master or guesser
+    //    public void setMasterOrGuesser(boolean b);
 
     //will set final guess
-//    public int[] setFinal(int[] fin) {
-//	_finalAns=fin;
-//    }
+    public int[] setFinal(int[] fin) {
+	_finalAns=fin;
+	return fin;
+    }
 }
         

@@ -9,8 +9,8 @@ public class Computer extends Player{
 
     public Computer() {
 	_masterOrGuesser = false; //false means it is the master
-	_gameBoard=new int[12][4];
-	_pegsBoard=new int[12][4];
+	//_gameBoard=new int[12][4];
+	//_pegsBoard=new int[12][4];
 	_currentTurn=0;
 	setFinal(makeAnswer());
     }
