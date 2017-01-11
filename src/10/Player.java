@@ -24,12 +24,6 @@ public abstract class Player {
         return false;
     }
     
-    public ArrayList<Integer> toArray(int[] toConvert){
-        ArrayList<Integer> ret = new ArrayList<Integer>();
-        for (int i: toConvert)
-            ret.add(i);
-        return ret;
-    }
     
     //will return the appropriate number/type of pegs based on the guess
     public ArrayList<Integer> givePegs(){ //int[]
