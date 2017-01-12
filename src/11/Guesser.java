@@ -11,6 +11,7 @@ public class Guesser {
 
 	    System.out.println("Wrong, try again...");
 	    Prompt.print(magic.getBoard());
+	    Prompt.print(magic.getPegs());	
 	}
 
 	if (magic.getTurn()==12)
