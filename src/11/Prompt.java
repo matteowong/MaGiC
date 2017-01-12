@@ -1,10 +1,10 @@
 import cs1.Keyboard;
 public class Prompt {
     //ie keyboard.java
-    private String _correct = "Please input a string in the format xxxx, where x is 0->5, inclusive";
-    private String NUMS = "0123456789";
+    private static String _correct = "Please input a string in the format xxxx, where x is 0->5, inclusive";
+    private static String NUMS = "0123456789";
 
-    public String promptWord(String question) {
+    public static String promptWord(String question) {
         String in = new String();
         System.out.print(question+": ");
         in = Keyboard.readWord();
@@ -16,7 +16,7 @@ public class Prompt {
         }
         return in;
     }
-    public boolean isAllDigs(String s) {
+    public static boolean isAllDigs(String s) {
         for (int i = 0; i < s.length(); i++) {
             //if any substring of NUMS isnt found in the NUMS string, return false
             if (NUMS.indexOf(s.substring(i,i+1)) == -1) {
@@ -25,9 +25,9 @@ public class Prompt {
         }
         return true;
     }
-    public int[] getGuess(String question) {
+    public static int[] getGuess(String question) {
 
-        System.out.print(question+": ");
+        //System.out.print(question+": ");
         String in = promptWord(question);
         if (in.length() != 4 & !isAllDigs(in)) {
             System.out.println(_correct);
@@ -47,4 +47,16 @@ public class Prompt {
         }
         return retArr;
     }
+
+    public static void print( int[][] a ) 
+    { 
+	for (int i=0;i<a.length;i++){
+	    for (int j=0;j<a[i].length;j++) {
+		System.out.print(a[i][j]);
+	    }
+	    System.out.print("\n");
+	    
+	}
+    }
+
 }

@@ -10,7 +10,7 @@ public class Game {
     private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
     //    commented so no errors -- does not compile yet bc no User.java or Computer.java have been written
-    public Game(/*boolean userGuesser*/) {
+    public Game() {
 	//	if (userGuesser) {
 	    _guesser = new User();
 	    _masterMind = new Computer();
@@ -32,15 +32,21 @@ public class Game {
 	return _pegs;
     }
 
-    public void turn(int[] guess) {
+    public boolean turn(int[] guess) {
 	_guesser.setGuess(guess);
 	_masterMind.setGuess(guess);
 	_board[_turn]=guess;
 	_pegs[_turn]=_masterMind.givePegs();
 	_turn+=1;
+	if (_pegs[_turn-1][3]==2)
+	    return true;
+	else
+	    return false;
     }
 
-
+    public int getTurn() {
+	return _turn;
+    }
 
 
 
