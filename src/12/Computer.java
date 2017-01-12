@@ -14,6 +14,8 @@ public class Computer extends Player{
 	_currentTurn=0;
 	setFinal(makeAnswer());
     }
+
+    //public int[] setGuess(int[] guess) will NOT use the given input
     
     public static void main(String[] args){
         Computer t = new Computer();
