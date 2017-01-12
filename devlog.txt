@@ -86,7 +86,7 @@ Gilvir :: Continued prompt.java.
 --------------------------------------------------------------
 All :: Discussed how to dombine all the methods made to complete the mastermind game with the user playing as guesser
 Matteo :: Wrote turn() method, which uses previously defined methods to run one turn. Debugged Computer and User, wrote basic Guesser class which needs updating
-Caleb :: Updated devlog for all days.
+Caleb :: Updated devlog for all days. Debugged and added to Guess.java so that the user can now play a full game of mastermind as the guesser!
 Gilvir :: Finished prompt.java
 ==============================================================
 
