@@ -1,4 +1,5 @@
 public class Computer extends Player{
+    private int iter=0;
     public int[] makeAnswer(){
 	int[] answer= new int[4];
 	for (int i=0; i<4; i++){
@@ -17,10 +18,12 @@ public class Computer extends Player{
 
     //public int[] setGuess(int[] guess) will NOT use the given input
     
-    public static void main(String[] args){
+    /*    public static void main(String[] args){
         Computer t = new Computer();
         System.out.println(t.givePegs());   
-    }
+	}*/
     
+    public int[] algo() {
+    }
 	    
 }
