@@ -10,8 +10,10 @@ public class Guesser {
 		}
 
 	    System.out.println("Wrong, try again...");
-	    Prompt.print(magic.getBoard());
-	    Prompt.print(magic.getPegs());	
+	    for (int i=0; i<magic.getTurn(); i++){
+	    	Prompt.print(magic.getBoard());
+	    	Prompt.print(magic.getPegs());
+	    }
 	}
 
 	if (magic.getTurn()==12)
