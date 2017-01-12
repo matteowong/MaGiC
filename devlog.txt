@@ -1,4 +1,4 @@
-aGiC
+MaGiC
 Matteo Wong
 Caleb SMith-Salzberg
 Gilvir Gill
@@ -85,7 +85,7 @@ Gilvir :: Continued prompt.java.
 2016-01-11
 --------------------------------------------------------------
 All :: Discussed how to dombine all the methods made to complete the mastermind game with the user playing as guesser
-Matteo :: Wrote turn() method, which uses previously defined methods to run one turn.
+Matteo :: Wrote turn() method, which uses previously defined methods to run one turn. Debugged Computer and User, wrote basic Guesser class which needs updating
 Caleb :: Updated devlog for all days.
 Gilvir :: Finished prompt.java
 ==============================================================
