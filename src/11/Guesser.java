@@ -4,15 +4,23 @@ public class Guesser {
 	Game magic = new Game();
 
 	while (magic.getTurn()<12) {
-	    if (magic.turn(Prompt.getGuess("Input your first guess")))
+	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))
 		{
 		    break;
 		}
 
 	    System.out.println("Wrong, try again...");
+        System.out.println("Board \t Pegs \n");
 	    for (int i=0; i<magic.getTurn(); i++){
-	    	Prompt.print(magic.getBoard());
-	    	Prompt.print(magic.getPegs());
+            String oneHalf = "";
+            String otherHalf = "";
+            for (int j=0; j<magic.getBoard()[i].length; j++){
+                oneHalf += magic.getBoard()[i][j]+"";
+                otherHalf += magic.getPegs()[i][j]+"";
+            }
+            System.out.println(oneHalf + "\t" + otherHalf +"\n");
+            //Prompt.print(magic.getBoard());
+	    	//Prompt.print(magic.getPegs());
 	    }
 	}
 
