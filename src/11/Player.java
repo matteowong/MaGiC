@@ -12,7 +12,8 @@ public abstract class Player {
 
     //setNextGuess() will be used to set the next guess of what the code is, will be run through Game class based on input from terminal
     public int[] setGuess(int[] guess){
-	_currGuess=guess;
+	for (int i=0;i<4;i++)
+	    _currGuess[i]=guess[i];
 	return guess;
     }
 
@@ -30,21 +31,24 @@ public abstract class Player {
     
     //will return the appropriate number/type of pegs based on the guess
     public int[] givePegs(){ //int[]
+	int[] localFin=new int[4];
+	for (int i=0;i<4;i++)
+	    localFin[i]=_finalAns[i];
         int[] pegs = new int[4];
 	int countPerf=0; //2
 	int countAlmost=0; //1
 	for (int i=0; i<_currGuess.length; i++){
-	    if (_currGuess[i]==_finalAns[i]){
+	    if (_currGuess[i]==localFin[i]){
                 _currGuess[i]=-11;
-		_finalAns[i]=-1;
+		localFin[i]=-1;
                 countPerf+=1;
 	    }
 	}
         for (int i=0; i<_currGuess.length; i++){
-            if (check(_currGuess[i], _finalAns) ){ 
+            if (check(_currGuess[i], localFin) ){ 
                 countAlmost+=1;
                 _currGuess[i]=-11;
-                _finalAns[removeFromTempAns]=-1;
+                localFin[removeFromTempAns]=-1;
             }
         }
         int z=0;

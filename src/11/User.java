@@ -7,10 +7,6 @@ public class User extends Player {
 	_currentTurn=0;
     }
     
-    public int[] setGuess(int[] guess) {
-	_currGuess=guess;
-	//gameBoard[_currentTurn]=guess;
-	return guess;
-    }
+
 
 }

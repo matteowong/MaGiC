@@ -1,8 +1,8 @@
 public class Computer extends Player{
     public int[] makeAnswer(){
-	int[] answer= new int[6];
-	for (int i=0; i<6; i++){
-	    answer[i]=(int)Math.random()*6;
+	int[] answer= new int[4];
+	for (int i=0; i<4; i++){
+	    answer[i]=(int)(Math.random()*6);
 	}
 	return answer;
     }

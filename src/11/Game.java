@@ -34,6 +34,7 @@ public class Game {
 
     public void turn(int[] guess) {
 	_guesser.setGuess(guess);
+	_masterMind.setGuess(guess);
 	_board[_turn]=guess;
 	_pegs[_turn]=_masterMind.givePegs();
 	_turn+=1;
@@ -62,18 +63,27 @@ public class Game {
 
 
 
-    //testing
+    /*testing
     public static void main(String[] args){
-        /*String[] x = new String[] {"blue","brown","orange","purple","blue","yellow"};
+        String[] x = new String[] {"blue","brown","orange","purple","blue","yellow"};
         ArrayList<String> t = new ArrayList<String>();
         for (String ret:x)
 	    t.add(ret);
         Game test=new Game();
-        System.out.println(test.translatorToNum(t)); //expect 1 6 3 5 1 4*/
+        System.out.println(test.translatorToNum(t)); //expect 1 6 3 5 1 4
 	Game magic = new Game();
 	int[] a = {0,1,2,3};
 	magic.turn(a);
-    }
+	for (int x:magic._correctAns)
+	    System.out.print(x+",");
+	System.out.println();
+	for (int i:magic._board[0])
+	    System.out.print(i+",");
+	System.out.println();
+	for (int j:magic._pegs[0])
+	    System.out.print(j+",");
+	System.out.println();
+	}*/
 
 
 }
