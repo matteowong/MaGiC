@@ -1,6 +1,6 @@
 
 public class Guesser {
-    public static void play() {
+    public static void main(String[] args) {
 	Game magic = new Game();
 
 	while (magic.getTurn()<12) {
