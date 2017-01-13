@@ -89,12 +89,6 @@ Matteo :: Wrote turn() method, which uses previously defined methods to run one 
 Caleb :: Updated devlog for all days. Debugged and added to Guess.java so that the user can now play a full game of mastermind as the guesser!
 Gilvir :: Finished prompt.java
 ==============================================================
-2016-01-12
---------------------------------------------------------------
-All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
-Matteo :: worked on AI algorithm
-Caleb :: made very important KTS for AI algorithm
-Gilbir :: robustified Prompt.java
-==============================================================
+
 
 
