@@ -92,7 +92,7 @@ Gilvir :: Finished prompt.java
 2016-01-12
 --------------------------------------------------------------
 All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
-Matteo :: worked on AI algorithm
+Matteo :: worked on AI algorithm, Woo.java
 Caleb :: made very important KTS for AI algorithm
 Gilbir :: robustified Prompt.java
 ==============================================================
