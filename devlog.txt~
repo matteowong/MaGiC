@@ -92,9 +92,23 @@ Gilvir :: Finished prompt.java
 2016-01-12
 --------------------------------------------------------------
 All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
-Matteo :: worked on AI algorithm
+Matteo :: worked on AI algorithm, Woo.java
 Caleb :: made very important KTS for AI algorithm
-Gilbir :: robustified Prompt.java
+Gilvir :: robustified Prompt.java
 ==============================================================
-
+2016-01-14
+--------------------------------------------------------------
+All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
+Matteo :: Continued thinking on algorithms and general problems
+Caleb :: Formed solid layout for algorithm. Created script to generate all possiblilities, and makeGuess.java, which is close to                  producing a guess based on previous guess and pegs. The idea is to eliminate from all possibilities the ones that do not fit            the information provided.
+Gilvir :: Continued thinking on algorithms and general problems
+==============================================================
+2016-01-15
+--------------------------------------------------------------
+All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
+Matteo :: Continued thinking on algorithms and general problems
+Caleb :: Thought about the algorithm created late the night before, and realized it should work. Removed unnecessary sections,
+         and added helpful comments so that teammates can also revise and look over it.
+Gilbir :: 
+==============================================================
 
