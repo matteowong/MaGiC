@@ -12,15 +12,22 @@ public class makeGuess{
             narrow.add(one);
         }
     }
-    //true if there is no part that matches
+    //true if it does not match the lastG the same number of times as pegs
     public boolean nomatch(ArrayList<Integer> checking, int[] lastG, int times){
-        int matches =0
+        int matches =0;
+        ArrayList<Integer> unmatched = new ArrayList<Integer>(4);
+        for (int i: lastG)
+            unmatched.add(i);
         for (int i=0; i<4; i++){
-            if (checking.get(i) == lastG[0] || checking.get(i) == lastG[1] || checking.get(i) == lastG[2] || checking.get(i) == lastG[3]){
-                count+=1;
+            for (int j=0; j<unmatched.size(); j++){
+                if (checking.get(i) == unmatched.get(j)){
+                matches+=1;
+                unmatched.remove(j);
+                break;
+                }
             }
         }
-        return (count!=times);
+        return (matches!=times);
     }
     //true if no perfect match                              
      public boolean noperfmatch(ArrayList<Integer> checking, int[] lastG, int perf){
@@ -31,7 +38,17 @@ public class makeGuess{
             }
         }
         return (matches!=perf);
-    }                             
+    }
+    /*
+    this method first checks if the checking arrayList (which is a part of narrow) does not
+    have the same number of matches with the lastGuess as the number of red pegs. If it
+    does not, then nopermatch returns true, and the index is removed, because if it does not
+    have the same matches with the lastGuess as red pegs, it cannot be the correct answer
+    
+    then, it checks if the checking arrayList (which is a part of narrow) does not have the
+    same number of half matches (same number, different position) with the lastGuess as white
+    pegs. If 
+    */
     public int match(int index, ArrayList<Integer> checking, int[] lastG, int red, int white){
         int total = red +white;
         if (noperfmatch(checking, lastG, red)){
@@ -42,6 +59,7 @@ public class makeGuess{
             narrow.remove(index);
             return 1; 
          }
+        return 0;
     }
     public int check(int index, ArrayList<Integer> checking, int[] lastG, int[] pegs){
         //count the pegs of each type
@@ -58,27 +76,13 @@ public class makeGuess{
                 break;
             }
         }
-        //if no match on the previous guess
-        if (pegs[0] == 0){
-            //and the checking has none of the same numbers
-            if (nomatch(checking, lastG, 0)){
-                return 0; //keep that part of narrow, nothing removed, so index by 1
-            }
-            else{
-                narrow.remove(i);
-                return 1; //item removed, so do not index at all
-            }
-        }
-        //otherwise
-        else{
-            return match(int index, checking, lastG, red, white);
-        }
+        return match(index, checking, lastG, red, white);
     }
     //go through every part of narrow and check it using pegs and the last guess
     public void guess(int[] lastG, int[] pegs){
         int i=0;
         while (i<narrow.size()){
-            i+=check(int i, narrow.get(i), lastG, pegs); //checks each part of narrow
+            i+=check(i, narrow.get(i), lastG, pegs); //checks each part of narrow
         }
     }
 }
