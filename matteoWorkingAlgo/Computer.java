@@ -23,6 +23,7 @@ public class Computer extends Player{
 	  System.out.println(t.givePegs());   
 	  }*/
 
+    //checks num zeroes in the arrray so they can be replaced
     public int checkZeroes(int[] a) {
 	int ret=0;
 	for (int x: a) {
@@ -30,16 +31,14 @@ public class Computer extends Player{
 		ret+=1;
 	}
     }
-    
-    /*    public int[] algo() {
+
+    public int[] setPossibleDigits(int a) {
 	int[] guesses = new int[2];
-	int[] nextGuess=new int[4];
-	int numZ=0;
-	if (iter==0) {
+	if (a==0) {
 	    guesses[0]=1;
 	    guesses[1]=2;
 	}
-	else if (iter==1) {
+	else if (a==1) {
 	    guesses[0]=3;
 	    guesses[1]=4;
 	}
@@ -47,8 +46,23 @@ public class Computer extends Player{
 	    guesses[0]=5;
 	    guesses[1]=6;
 	}
-	numZ=checkZeroes(_gameBoard[_currentTurn]);
+	return guesses;
+    }
+    
+    public int[] algo() {
+	int[] guesses = new setPossibleDigits(iter);
+	int[] nextGuess=new int[4];
+	for (int i=0;i<4;i++) {
+	    nextGuess[i]=_gameBoard[_currentTurn][i];
+	}
+	int numZ=checkZeroes(nextGuess);
+	for (int i=0;i<4;i++) {
+	    if (i<2)
+		nextGuess[i]=guesses[0];
+	    else
+		nextGuess[i]=guesses[1];
+	}
 	
-	}*/
+    }
 	    
 }

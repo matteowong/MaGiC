@@ -31,7 +31,7 @@ public class Computer extends Player{
 	}
     }
     
-    /*    public int[] algo() {
+    public int[] algo() {
 	int[] guesses = new int[2];
 	int[] nextGuess=new int[4];
 	int numZ=0;
@@ -49,6 +49,6 @@ public class Computer extends Player{
 	}
 	numZ=checkZeroes(_gameBoard[_currentTurn]);
 	
-	}*/
+    }
 	    
 }
