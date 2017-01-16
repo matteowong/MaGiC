@@ -3,7 +3,7 @@ public class Computer extends Player{
     public int[] makeAnswer(){
 	int[] answer= new int[4];
 	for (int i=0; i<4; i++){
-	    answer[i]=(int)(Math.random()*6);
+	    answer[i]=(int)(Math.random()*6)+1;
 	}
 	return answer;
     }
@@ -17,10 +17,10 @@ public class Computer extends Player{
     }
 
     //public int[] setGuess(int[] guess) will NOT use the given input
-    
+
     /*    public static void main(String[] args){
 	  Computer t = new Computer();
-	  System.out.println(t.givePegs());   
+	  System.out.println(t.givePegs());
 	  }*/
 
     public int checkZeroes(int[] a) {
@@ -29,8 +29,9 @@ public class Computer extends Player{
 	    if (x==0)
 		ret+=1;
 	}
+    return ret;
     }
-    
+
     /*    public int[] algo() {
 	int[] guesses = new int[2];
 	int[] nextGuess=new int[4];
@@ -48,7 +49,7 @@ public class Computer extends Player{
 	    guesses[1]=6;
 	}
 	numZ=checkZeroes(_gameBoard[_currentTurn]);
-	
+
 	}*/
-	    
+
 }

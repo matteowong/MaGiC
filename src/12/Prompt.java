@@ -2,7 +2,7 @@ import cs1.Keyboard;
 public class Prompt {
     //ie keyboard.java
     private static String _correct = "Please input a string in the format xxxx, where x is 0->5, inclusive";
-    private static String NUMS = "0123456789";
+    private static String NUMS = "123456";
 
     public static String promptWord(String question) {
         String in = new String();
@@ -29,11 +29,12 @@ public class Prompt {
 
         //System.out.print(question+": ");
         String in = promptWord(question);
-        if (in.length() != 4 & !isAllDigs(in)) {
+        if (in.length() != 4 || !isAllDigs(in)) {
             System.out.println(_correct);
             return getGuess(question);
         }
         //just another check to see if its an int, this is kind of unnessary
+        /*
         try {
             Integer.parseInt(in);
         }
@@ -41,6 +42,7 @@ public class Prompt {
             System.out.println(_correct);
             return getGuess(question);
         }
+        */
         int[] retArr = new int[4];
         for (int i = 0; i < 4; i++) {
             retArr[i] = Integer.parseInt(in.substring(i,i+1));
@@ -48,14 +50,14 @@ public class Prompt {
         return retArr;
     }
 
-    public static void print( int[][] a ) 
-    { 
+    public static void print( int[][] a )
+    {
 	for (int i=0;i<a.length;i++){
 	    for (int j=0;j<a[i].length;j++) {
 		System.out.print(a[i][j]);
 	    }
 	    System.out.print("\n");
-	    
+
 	}
     }
 

@@ -48,11 +48,15 @@ public class Game {
 	return _turn;
     }
 
+    public int[] getFinal() {
+        return _correctAns;
+    }
 
 
-    
+
+
     public static String searchColor(String key){
-	for (int i=0; i<6; i++){
+	for (int i=1; i<7; i++){
 	    if (matching[i][1].equals(key))
 		return matching[i][0];
 	}

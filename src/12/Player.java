@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class Player {
-    protected static int[] _currGuess = new int[4]; 
+    protected static int[] _currGuess = new int[4];
     protected static int[] _finalAns = new int[4]; //correct
     protected int[] used = new int[4];
     protected int removeFromTempAns;
@@ -27,8 +27,8 @@ public abstract class Player {
         }
         return false;
     }
-    
-    
+
+
     //will return the appropriate number/type of pegs based on the guess
     public int[] givePegs(){ //int[]
 	int[] localFin=new int[4];
@@ -45,7 +45,7 @@ public abstract class Player {
 	    }
 	}
         for (int i=0; i<_currGuess.length; i++){
-            if (check(_currGuess[i], localFin) ){ 
+            if (check(_currGuess[i], localFin) ){
                 countAlmost+=1;
                 _currGuess[i]=-11;
                 localFin[removeFromTempAns]=-1;
@@ -65,8 +65,8 @@ public abstract class Player {
         }
 	return pegs;
     }
-    
-    
+
+
     //will set if instance of User or Computer is master or guesser
     //    public void setMasterOrGuesser(boolean b);
 
@@ -76,4 +76,3 @@ public abstract class Player {
 	return fin;
     }
 }
-        

@@ -17,13 +17,13 @@ public class Computer extends Player{
     }
 
     //public int[] setGuess(int[] guess) will NOT use the given input
-    
+
     /*    public static void main(String[] args){
         Computer t = new Computer();
-        System.out.println(t.givePegs());   
+        System.out.println(t.givePegs());
 	}*/
-    
+
     //    public int[] algo() {
     //}
-	    
+
 }
