@@ -24,6 +24,11 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
+There was a bug that caused things that should have been removed from the arrayList to not be removed.
+After a long time tracing, Caleb realized that there was an error that caused an else statement to be run when it should not have been
+This caused something to be wrong early on in the algorithm, and messed everything up.
+By adding the word "else" before the if, all problems were fixed!
+
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
@@ -109,6 +114,11 @@ All :: Discussed how the algorithm will work and robustifying code so we don't n
 Matteo :: Continued thinking on algorithms and general problems, started algo specified in proposal
 Caleb :: Thought about the algorithm created late the night before, and realized it should work. Removed unnecessary sections,
          and added helpful comments so that teammates can also revise and look over it.
-Gilbir :: 
+Gilvir :: 
 ==============================================================
-
+2017-01-16
+--------------------------------------------------------------
+Matteo :: worked on algo
+Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes down to the solution in 12 attempts.
+<Member> :: <Thing member did.>
+==============================================================

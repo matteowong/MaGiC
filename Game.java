@@ -24,6 +24,17 @@ public class Game {
 	_turn=0;
     }
 
+    public Game (int n) {
+	_guesser=new User();
+	_masterMind=new User();
+	setFinalTwoPlayer();
+    }
+
+    public void setFinalTwoPlayer() {
+	System.out.println("Whoever is playing the mastermind should input their code");
+	_masterMind.setFinal(Prompt.getGuess("Input final code "));
+    }
+
     public int[][] getBoard() {
 	return _board;
     }

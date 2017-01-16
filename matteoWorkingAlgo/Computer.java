@@ -2,6 +2,7 @@ public class Computer extends Player{
     private int _iter=0;
     private int _turnsSinceUpdatedIter=0;
     private int[] _correct=new int[4];
+    private int[] _possible=new int[4];
     
     public int[] makeAnswer(){
 	int[] answer= new int[4];
@@ -83,7 +84,6 @@ public class Computer extends Player{
 	int[] nextGuess=new int[4];//will return this
 	int[] currPegs=new int[4];//_gameBoard[turn];
 	int[] lastPegs=new int[4];//_pegsBoard[turn-1];
-	int[] possiblePegs=new int[4];//will be updated with possible guesses
 	for (int i=0;i<4;i++) {//maks a deep copy, 
 	    nextGuess[i]=_correct[i];//correct is the current values known to the AI
 	}
@@ -91,9 +91,9 @@ public class Computer extends Player{
 	// if this is the first time since the iteration has been updated then the slots that have zeroes (have nothing in them) are updated
 	if (_turnsSinceUpdatedIter==0) {
 	    for (int i=0;i<4;i++) {
-		if (nextGuess[i]==0 && i%2==0)//this alternates between the two possible guesses so it is changed
+		if (nextGuess[i]==0 && i<=numZ/2)//this alternates between the two possible guesses so it is changed
 		    nextGuess[i]=guesses[0];
-		else if (nextGuess[i]==0 && i%2!=0)//does every other
+		else if (nextGuess[i]==0 && i>numZ/2)//does every other
 		    nextGuess[i]=guesses[1];
 	    }
 
@@ -111,13 +111,14 @@ public class Computer extends Player{
 	    lastPegs=_pegsBoard[turn-1];
 	    int numCurrPegs=numPegs(currPegs);
 	    int numLastPegs=numPegs(lastPegs);
-	    if (numCurrPegs==numLastPegs && numCurrPegs<3) {
-		//means there are two guesses[1] and no guesses[0]
+	    //need to replace boolean #s (3,2, etc) with proportional int to numZeroes
+	    if (numCurrPegs==numLastPegs && numCurrPegs<Math.round(numZ/2)) {
+		//means there are Math.round(numZ/2)  guesses[1] and zero or 1  guesses[0]
 		//if countTwos(currPegs)>countTwos(lastPegs)
 		// => means there are guesses[1] in slots 0 or 1
 		//else there are guesses[1] in slots 2 or 3, only
 	    }
-	    else if (numCurrPegs==numLastPegs && numCurrPegs==3) {
+	    else if (numCurrPegs==numLastPegs && numCurrPegs==Math.round(numZ/2)) {
 		//means there are three guesses[1] and 1 guesses[0]
 	    }
 	    else if (numCurrPegs< numLastPegs) {

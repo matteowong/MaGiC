@@ -118,7 +118,7 @@ Gilvir ::
 ==============================================================
 2017-01-16
 --------------------------------------------------------------
-Matteo :: worked on algo
+Matteo :: worked on algo, made TwoPlayer.java
 Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes down to the solution in 12 attempts.
 <Member> :: <Thing member did.>
 ==============================================================
