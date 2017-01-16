@@ -61,6 +61,22 @@ public class Computer extends Player{
 	    if (i>0) ret+=1;
 	return ret;
     }
+
+    //pre-con: takes peg array
+    //post-con: returns # of 2's (right color and right place)
+    public int numTwos(int[] pegs) {
+	int ret=0;
+	for (int i:pegs)
+	    if (i==2) ret+=1;
+	return ret;
+    }
+
+    public int numOnes(int[] pegs) {
+	int ret=0;
+	for (int i:pegs)
+	    if (i==1) ret+=1;
+	return ret;
+    }
     
     public int[] algo() {
 	int[] guesses = new setPossibleDigits(_iter);//sets possible digits to guess
@@ -89,16 +105,20 @@ public class Computer extends Player{
 		    nextGuess[i]==guesses[1];
 	    }
 	}
-	else {
+	//this is the first time it can check the difference b/w the pegs
+	else if (_turnsSinceUpdatedIter==2) {
 	    currPegs=_pegsBoard[turn];
 	    lastPegs=_pegsBoard[turn-1];
 	    int numCurrPegs=numPegs(currPegs);
 	    int numLastPegs=numPegs(lastPegs);
 	    if (numCurrPegs==numLastPegs && numCurrPegs<3) {
 		//means there are two guesses[1] and no guesses[0]
+		//if countTwos(currPegs)>countTwos(lastPegs)
+		// => means there are guesses[1] in slots 0 or 1
+		//else there are guesses[1] in slots 2 or 3, only
 	    }
 	    else if (numCurrPegs==numLastPegs && numCurrPegs==3) {
-		//means there are two guesses[1] and 1 guesses[0]
+		//means there are three guesses[1] and 1 guesses[0]
 	    }
 	    else if (numCurrPegs< numLastPegs) {
 		//there are (numCurrPegs-numLastPegs) guesses[0]
