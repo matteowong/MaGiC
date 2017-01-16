@@ -1,5 +1,8 @@
 public class Computer extends Player{
-    private int iter=0;
+    private int _iter=0;
+    private int _turnsSinceUpdatedIter=0;
+    private int[] _correct=new int[4];
+    
     public int[] makeAnswer(){
 	int[] answer= new int[4];
 	for (int i=0; i<4; i++){
@@ -32,6 +35,7 @@ public class Computer extends Player{
 	}
     }
 
+    //sets possible digits for the algo
     public int[] setPossibleDigits(int a) {
 	int[] guesses = new int[2];
 	if (a==0) {
@@ -48,21 +52,71 @@ public class Computer extends Player{
 	}
 	return guesses;
     }
+
+    //pre-con: gets peg array of 1s and 2s w/ all other slots as 0s
+    //post-con: returns # of 1s, 2s
+    public int numPegs(int[] pegs){
+	int ret=0;
+	for (int i:pegs)
+	    if (i>0) ret+=1;
+	return ret;
+    }
     
     public int[] algo() {
-	int[] guesses = new setPossibleDigits(iter);
-	int[] nextGuess=new int[4];
-	for (int i=0;i<4;i++) {
-	    nextGuess[i]=_gameBoard[_currentTurn][i];
+	int[] guesses = new setPossibleDigits(_iter);//sets possible digits to guess
+	int[] nextGuess=new int[4];//will return this
+	int[] currPegs=new int[4];//_gameBoard[turn];
+	int[] lastPegs=new int[4];//_pegsBoard[turn-1];
+	int[] possiblePegs=new int[4];//will be updated with possible guesses
+	for (int i=0;i<4;i++) {//maks a deep copy, 
+	    nextGuess[i]=_correct[i];//correct is the current values known to the AI
 	}
-	int numZ=checkZeroes(nextGuess);
-	for (int i=0;i<4;i++) {
-	    if (i<2)
-		nextGuess[i]=guesses[0];
-	    else
-		nextGuess[i]=guesses[1];
+	int numZ=checkZeroes(nextGuess);//sets number of zeroes -- possibly unnecessary we'll see
+	// if this is the first time since the iteration has been updated then the slots that have zeroes (have nothing in them) are updated
+	if (_turnsSinceUpdatedIter==0) {
+	    for (int i=0;i<4;i++) {
+		if (nextGuess[i]==0 && i%2==0)//this alternates between the two possible guesses so it is changed
+		    nextGuess[i]=guesses[0];
+		else if (nextGuess[i]==0 && i%2!=0)//does every other
+		    nextGuess[i]=guesses[1];
+	    }
+
 	}
-	
+	//this is the second time through, it replaces all the 1's with 2's or the 3's with 4's so that the pegs will change
+	else if (_turnsSinceUpdatedIter==1) {
+	    for (int i=0;i<4;i++) {
+		if (nextGuess[i]==guesses[0])
+		    nextGuess[i]==guesses[1];
+	    }
+	}
+	else {
+	    currPegs=_pegsBoard[turn];
+	    lastPegs=_pegsBoard[turn-1];
+	    int numCurrPegs=numPegs(currPegs);
+	    int numLastPegs=numPegs(lastPegs);
+	    if (numCurrPegs==numLastPegs && numCurrPegs<3) {
+		//means there are two guesses[1] and no guesses[0]
+	    }
+	    else if (numCurrPegs==numLastPegs && numCurrPegs==3) {
+		//means there are two guesses[1] and 1 guesses[0]
+	    }
+	    else if (numCurrPegs< numLastPegs) {
+		//there are (numCurrPegs-numLastPegs) guesses[0]
+		//there are numCurrPegs guesses[1]
+		//have to account for case of three or more guesses[0]
+	    }
+	    else if (numCurrPegs>numLastPegs) {
+		//0 guesses[0]
+		//numCurrPegs guesses[1]
+	    }
+
+
+
+	}
+    
+
+    return nextGuess;
     }
+    
 	    
 }
