@@ -30,7 +30,7 @@ public class Game {
 	_masterMind=new User();
 	_turn=0;
 	setFinalTwoPlayer();
-	}
+    }
 
     public Game (String s) {
 	_guesser = new Computer(false);
@@ -53,9 +53,10 @@ public class Game {
     }
 
     public boolean turn(int[] guess) {
-	_guesser.setGuess(guess);
+	_guesser.setGameBoard(getBoard());
+	_guesser.setPegsBoard(getPegs());
 	_masterMind.setGuess(guess);
-	_board[_turn]=guess;
+	_board[_turn]=_guesser.setGuess(guess);
 	_pegs[_turn]=_masterMind.givePegs();
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());

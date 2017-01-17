@@ -126,7 +126,7 @@ Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes d
 ==============================================================
 2017-01-17
 --------------------------------------------------------------
-Matteo :: 
+Matteo :: worked on testing MakeGuess.java
 Caleb :: 
 Gilvir :: 
 ==============================================================

@@ -4,7 +4,7 @@ public class MasterMind {
 	Game magic=new Game("hi");
 
 	while (magic.getTurn()<12) {
-	    if (magic.turn(Prompt.getGuess("Press Enter ")))
+	    if (magic.turn(Prompt.getGuess("Enter pegs")))
 		{
 		    break;
 		}

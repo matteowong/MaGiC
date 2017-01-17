@@ -22,8 +22,8 @@ public class Computer extends Player{
     }
     //comment this out to make it compilable
     public int[] setGuess(int[] guess) {
-	if (!_masterOrGuesser) {
-	ArrayList<Integer> a1 = algorithm.guess(_gameBoard[_currentTurn],_pegsBoard[_currentTurn]);
+	if (!_masterOrGuesser) {//when masterOrGuesser is true the computer is the master
+	ArrayList<Integer> a1 = algorithm.guess(_gameBoard[_currentTurn], _pegsBoard[_currentTurn]);
 	//	int[] a2 = new int[4];
 	for (int i=0;i<4;i++)
 	    _currGuess[i]=a1.get(i);
