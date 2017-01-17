@@ -74,9 +74,6 @@ public class makeGuess{
             else if (pegs[i]==1){
                 white+=1;
             }
-            else{
-                break;
-            }
         }
         return match(index, checking, lastG, red, white);
     }
