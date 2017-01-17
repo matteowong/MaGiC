@@ -55,8 +55,9 @@ public class Game {
     public boolean turn(int[] guess) {
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());
-	_masterMind.setGuess(guess);
+	//_masterMind.setGuess(guess);
 	_board[_turn]=_guesser.setGuess(guess);
+	_masterMind.setGuess(_board[_turn]);
 	_pegs[_turn]=_masterMind.givePegs();
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());
