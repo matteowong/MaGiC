@@ -65,6 +65,17 @@ public abstract class Player {
 	return pegs;
     }
 
+    public void setGameBoard(int[][] a) {
+	_gameBoard=a;
+    }
+
+    public void setPegsBoard(int[][] a) {
+	_pegsBoard=a;
+    }
+
+    public void setTurn() {
+	_currentTurn+=1;
+    }
 
     //will set if instance of User or Computer is master or guesser
     //    public void setMasterOrGuesser(boolean b);

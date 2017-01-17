@@ -1,0 +1,29 @@
+
+public class MasterMind {
+    public static void main(String[] args) {
+	Game magic=new Game("hi");
+
+	while (magic.getTurn()<12) {
+	    if (magic.turn(Prompt.getGuess("Press Enter ")))
+		{
+		    break;
+		}
+
+	    System.out.println("Wrong, try again...");
+	    System.out.println("Board \t Pegs \n");
+	    for (int i=0; i<magic.getTurn(); i++){
+		System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
+		//Prompt.print(magic.getBoard());
+	    	//Prompt.print(magic.getPegs());
+	    }
+	}
+
+	if (magic.getTurn()==12) {
+            System.out.println("You lose");
+            System.out.println("The correct answer was");
+	}
+	else
+	    {System.out.println("Victory!");}
+    }
+}
+

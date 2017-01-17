@@ -24,20 +24,17 @@ public class Game {
 	_turn=0;
     }
 
-    
     public Game (int n) {
 	_guesser=new User();
 	_masterMind=new User();
 	_turn=0;
 	setFinalTwoPlayer();
-	}
+    }
 
     public Game (String s) {
-	_guesser = new Computer(false);
+	_guesser = new Computer();
 	_masterMind=new User();
 	_turn=0;
-	setFinalTwoPlayer();
-    }
 
     public void setFinalTwoPlayer() {
 	System.out.println("Whoever is playing the mastermind should input their code");
@@ -53,6 +50,8 @@ public class Game {
     }
 
     public boolean turn(int[] guess) {
+	_guesser.setGameBoard(getBoard());
+	_guesser.setPegsBoard(getPegs());
 	_guesser.setGuess(guess);
 	_masterMind.setGuess(guess);
 	_board[_turn]=guess;
