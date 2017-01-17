@@ -105,7 +105,9 @@ Gilvir :: robustified Prompt.java
 --------------------------------------------------------------
 All :: Discussed how the algorithm will work and robustifying code so we don't need multiple methods doing very similar things
 Matteo :: Continued thinking on algorithms and general problems
-Caleb :: Formed solid layout for algorithm. Created script to generate all possiblilities, and makeGuess.java, which is close to                  producing a guess based on previous guess and pegs. The idea is to eliminate from all possibilities the ones that do not fit            the information provided.
+Caleb :: Formed solid layout for algorithm. Created script to generate all possiblilities, and makeGuess.java, which is close to
+         producing a guess based on previous guess and pegs. The idea is to eliminate from all possibilities the ones that do not fit
+         the information provided.
 Gilvir :: Continued thinking on algorithms and general problems
 ==============================================================
 2016-01-15
