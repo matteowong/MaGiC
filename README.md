@@ -1,5 +1,5 @@
 # MaGiC
-## To launch:
+## To Launch:
 1. Clone the repository
 2. cd to MaGiC
 3. Run javac Woo.java
