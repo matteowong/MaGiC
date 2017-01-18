@@ -63,7 +63,6 @@ public class Computer extends Player{
 	  guesses[1]=6;
 	  }
 	  numZ=checkZeroes(_gameBoard[_currentTurn]);
-
 	  }*/
 
 }

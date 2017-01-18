@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import cs1.Keyboard;
 public class Prompt {
     //ie keyboard.java
