@@ -127,6 +127,7 @@ Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes d
 2017-01-17
 --------------------------------------------------------------
 Matteo :: worked on testing MakeGuess.java
-Caleb :: 
+Caleb :: Completed version of MasterMind.java, so that the computer guesses against itself, and generates its own pegs 
+         to test the algorithm... it works!
 Gilvir :: 
 ==============================================================
