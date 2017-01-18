@@ -1,9 +1,9 @@
 # MaGiC
 ## To Launch:
 1. Clone the repository
-2. cd to MaGiC
-3. Run javac Woo.java
-4. Run java Woo
+2. '''cd MaGiC'''
+3. Run '''javac Woo.java'''
+4. Run '''java Woo'''
 5. Follow prompts given by the game
 6. Enjoy!!
 
