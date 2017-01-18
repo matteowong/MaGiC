@@ -9,29 +9,23 @@ public class Game {
     private int[] _correctAns= new int[4];
     private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
-    //    commented so no errors -- does not compile yet bc no User.java or Computer.java have been written
+    //for when user is guesser
     public Game() {
-	//	if (userGuesser) {
 	_guesser = new User();
 	_masterMind = new Computer(true);
 	//super confusing line follows: the correct answer is being set by the setFinal() method, which takes an int array. to generate a code the _masterMind must be typecasted to a Computer to run the makeAnswer() method
 	_correctAns=_masterMind.setFinal(((Computer)_masterMind).makeAnswer());
-	/*	}
-		else {
-		_guesser=new Computer();
-		_masterMind=new User();
-		}*/
 	_turn=0;
     }
 
-    
+    //for two player    
     public Game (int n) {
 	_guesser=new User();
 	_masterMind=new User();
 	_turn=0;
 	setFinalTwoPlayer();
     }
-
+    //for when user is mastermind
     public Game (String s) {
 	_guesser = new Computer(false);
 	_masterMind=new User();
@@ -41,7 +35,7 @@ public class Game {
 
     public void setFinalTwoPlayer() {
 	System.out.println("Whoever is playing the mastermind should input their code");
-	_masterMind.setFinal(Prompt.getGuess("Input final code "));
+	_masterMind.setFinal(Prompt.getGuess("Input final code ", true));
     }
 
     public int[][] getBoard() {
@@ -55,7 +49,6 @@ public class Game {
     public boolean turn(int[] guess) {
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());
-	//_masterMind.setGuess(guess);
 	_board[_turn]=_guesser.setGuess(guess);
 	_masterMind.setGuess(_board[_turn]);
 	_pegs[_turn]=_masterMind.givePegs();

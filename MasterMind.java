@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class MasterMind {
     
-    public static void main(String[] args) {
+    public static void play() {
 	Game magic=new Game("hi");
 	makeGuess guess = new makeGuess();
 	while (magic.getTurn()<12) {
