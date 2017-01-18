@@ -1,6 +1,6 @@
 # MaGiC
 ## To Launch:
-1. Clone the repository
+1. Clone the repository: ```git clone git@github.com:matteowong/MaGiC.git```
 2. ```cd MaGiC```
 3. Run ```javac Woo.java```
 4. Run ```java Woo```
