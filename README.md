@@ -1,9 +1,9 @@
 # MaGiC
 ## To Launch:
 1. Clone the repository: ```git clone git@github.com:matteowong/MaGiC.git```
-2. Navigate to the correct directory ```cd MaGiC```
-3. Compile the master file ```javac Woo.java```
-4. Run the master file ```java Woo```
+2. Navigate to the correct directory: ```cd MaGiC```
+3. Compile the master file: ```javac Woo.java```
+4. Run the master file: ```java Woo```
 5. Follow prompts given by the game
 6. Enjoy!!
 
