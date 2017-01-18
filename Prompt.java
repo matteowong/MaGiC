@@ -3,8 +3,9 @@ import cs1.Keyboard;
 public class Prompt {
     //ie keyboard.java
     private static String _correct = "Please input a string in the format xxxx, where x is 1->6, inclusive";
+    private static String _guess = "Please input a number 1-3, inclusive";
     private static String NUMS = "123456";
-    public static String promptWord(String question) {
+    public static String promptWord(String question, boolean hidden) {
         String in = new String();
         System.out.print(question+": ");
         in = Keyboard.readWord();
@@ -12,9 +13,24 @@ public class Prompt {
         //this could be done with recursion, but there's no reason for the extra function call
         while (in == null || in.equals("")) {
             System.out.print(question+": ");
+            //THIS REPLACES ANY THREAD INPUT WITH "*"
+
+            Masker mask = new Masker();
+            Thread mask_thread = new Thread(mask);
+            //this starts the thread outside of the rest of the code, so the while loop doesnt stop the rest from running
+            if (hidden) {
+                mask_thread.start();
+            }
             in = Keyboard.readWord();
+            if (hidden) {
+                mask.stop();
+            }
         }
         return in;
+    }
+    //if no boolean given, assume hidden
+    public static String promptWord(String question) {
+        return promptWord(question, false);
     }
     //turns Object[] into just a string with seperating string as optional second input
     public static String arrToStr(int[] arr, String seperator) {
@@ -35,13 +51,13 @@ public class Prompt {
         }
         return true;
     }
-    public static int[] getGuess(String question) {
+    public static int[] getGuess(String question, boolean hidden) {
 
         //System.out.print(question+": ");
-        String in = promptWord(question);
+        String in = promptWord(question, hidden);
         if (in.length() != 4 || !isAllDigs(in)) {
             System.out.println(_correct);
-            return getGuess(question);
+            return getGuess(question, hidden);
         }
         //just another check to see if its an int, this is kind of unnessary
         /*
@@ -59,6 +75,30 @@ public class Prompt {
         }
         return retArr;
     }
+    //if no boolean given, assume not hidden
+    public static int[] getGuess(String question) {
+        return getGuess(question, false);
+    }
+
+
+    public static int getChoice(String question) {
+        String in = promptWord(question, false);
+
+        try {
+            Integer.parseInt(in);
+        }
+        catch (Exception e) {
+            System.out.println(_guess);
+            return getChoice(question);
+        }
+        int ret = Integer.parseInt(in);
+        if (ret > 3 && ret < 1) {
+            System.out.println(_guess);
+            return getChoice(question);
+        }
+        return ret;
+
+    }
 
     public static void print( int[][] a )
     {
@@ -71,4 +111,38 @@ public class Prompt {
 	}
     }
 
+}
+
+
+
+
+
+
+
+
+
+//this is a class that effectively masks characters as they are entered
+//A Runnable is an interface that states
+//this allows it to update the loop that masks without getting stuck in it and preventing the code from running further
+//it's run on a special thread outside of the main one that executres seperately from the rest of the coded
+
+class Masker implements Runnable {
+    private boolean isHide;
+    //this method is run it's own thread
+    public void run() {
+        isHide = true; //this is changed outside the thread when user input is done being taken
+        while (isHide) {
+            System.out.print("\010*"); //this is a special escape character (simialr to unicode that java uses) this one is effectively a replacs
+            try {
+                Thread.currentThread().sleep(1); //this makes the thread it's running in stop for a milisecond, allowing it to be interupted externally
+            }
+            catch  (InterruptedException e) {
+                //this was the error generated. I'm guessing it means the thread waws interuppted incorrectly?
+            }
+        }
+    }
+    //this will keep running until something stops it by disabling isHide
+    public void stop() {
+        isHide = false;
+    }
 }
