@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class MasterMind {
     
     public static void main(String[] args) {
-	Game magic=new Game();
+	Game magic=new Game("hi");
 	makeGuess guess = new makeGuess();
 	while (magic.getTurn()<12) {
 	    int[] retArr={1,1,2,2};
