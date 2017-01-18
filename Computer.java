@@ -20,7 +20,7 @@ public class Computer extends Player{
 	if (mOrG)
 	    setFinal(makeAnswer()); 
     }
-    //comment this out to make it compilable
+    /*comment this out to make it compilable
     public int[] setGuess(int[] guess) {
 	if (!_masterOrGuesser) {//when masterOrGuesser is true the computer is the master
 	ArrayList<Integer> a1 = algorithm.guess(_gameBoard[_currentTurn], _pegsBoard[_currentTurn]);
@@ -33,7 +33,7 @@ public class Computer extends Player{
 	}
 	return _currGuess;
 
-	}
+	}*/
 
 
 
@@ -63,7 +63,6 @@ public class Computer extends Player{
 	  guesses[1]=6;
 	  }
 	  numZ=checkZeroes(_gameBoard[_currentTurn]);
-
 	  }*/
 
 }
