@@ -6,7 +6,7 @@ public class TwoPlayer {
     
 
 	while (magic.getTurn()<12) {
-	    if (magic.turn(Prompt.getGuess("Input guess number"+(magic.getTurn()+1))))
+	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))
 		{
 		    break;
 		}
