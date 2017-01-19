@@ -4,7 +4,8 @@ public class MasterMind {
     public static void play() {
 	Game magic=new Game("hi");
 	makeGuess guess = new makeGuess();
-	while (magic.getTurn()<12) {
+	System.out.println("Board \t Pegs \n");
+    while (magic.getTurn()<12) {
 	    int[] retArr={1,1,2,2};
 	    if (magic.getTurn()!=0){
 		int[] board = magic.getBoard()[magic.getTurn()-1];
@@ -17,6 +18,7 @@ public class MasterMind {
 		System.out.print(i);
 	    }
 	    System.out.println();
+        int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
 	    //have the user guess, check it, either say "choice is an illuion, or prompt to guess again, then continue with loop
 	    if (magic.turn(retArr ))
 		{
