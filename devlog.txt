@@ -130,11 +130,11 @@ Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes d
 Matteo :: worked on testing MakeGuess.java in MasterMind.java, minor debugging in MasterMind
 Caleb :: Completed version of MasterMind.java, so that the computer guesses against itself, and generates its own pegs 
          to test the algorithm... it works!
-Gilvir :: 
+Gilvir :: worked on hiding final answer
 ==============================================================
-2017-01-17
+2017-01-18
 --------------------------------------------------------------
-Matteo :: 
+Matteo :: Made Woo.java work with all three games, still some errors
 Caleb :: Began contemplating how the game should run from Woo.java, and what the user's role should be in the different game modes
-Gilvir :: 
+Gilvir :: Modified Prompt.java for the purposes of Woo.java, worked on hiding final answer
 ==============================================================
