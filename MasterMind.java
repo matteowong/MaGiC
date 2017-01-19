@@ -13,6 +13,11 @@ public class MasterMind {
 		for (int i =0; i<4; i++)
 		    retArr[i]= newguess.get(i);
 	    }
+	    for (int i: retArr){
+		System.out.print(i);
+	    }
+	    System.out.println();
+	    //have the user guess, check it, either say "choice is an illuion, or prompt to guess again, then continue with loop
 	    if (magic.turn(retArr ))
 		{
 		    System.out.println("Board \t Pegs \n");
