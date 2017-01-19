@@ -92,7 +92,7 @@ public class Prompt {
             return getChoice(question);
         }
         int ret = Integer.parseInt(in);
-        if (ret > 3 && ret < 1) {
+        if (ret > 3 || ret < 1) {
             System.out.println(_guess);
             return getChoice(question);
         }
