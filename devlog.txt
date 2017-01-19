@@ -138,3 +138,9 @@ Matteo :: Made Woo.java work with all three games, still some errors
 Caleb :: Began contemplating how the game should run from Woo.java, and what the user's role should be in the different game modes
 Gilvir :: Modified Prompt.java for the purposes of Woo.java, worked on hiding final answer
 ==============================================================
+2017-01-19
+--------------------------------------------------------------
+Matteo :: 
+Caleb :: Updated the printing of the game board, and updated MasterMind to take the user input for the pegs when the computer guesses. 
+Gilvir ::
+==============================================================
