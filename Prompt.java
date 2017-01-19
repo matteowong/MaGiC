@@ -81,6 +81,31 @@ public class Prompt {
     }
 
 
+    public static int[] getPegs(String question) {
+
+        //System.out.print(question+": ");
+        String in = promptWord(question);
+        if (in.length() != 4 || !isAllDigs(in)) {
+            System.out.println("Wrong! Stop cheating and try again");
+	    return getPegs(question);
+        }
+
+        int[] retArr = new int[4];
+        for (int i = 0; i < 4; i++) {
+            retArr[i] = Integer.parseInt(in.substring(i,i+1));
+	    if (retArr[i]>2 || retArr[i]<0) {
+		System.out.println("Wrong! Stop cheating and try again");
+		return getPegs(question);
+	    }
+        }
+        return retArr;
+    }
+
+
+
+
+
+
     public static int getChoice(String question) {
         String in = promptWord(question, false);
 
