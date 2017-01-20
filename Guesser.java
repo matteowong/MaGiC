@@ -2,6 +2,7 @@
 public class Guesser {
     public static void play() {
 	Game magic = new Game();
+	System.out.println("Hello! You are playing as the guesser, with the computer as the mastermind. The computer has generated a code, and you must guess it. Guess inputs should be in format xxxx, with integers from 1-6, inclusive. You have 12 turns to succeed.");
 
 	while (magic.getTurn()<12) {
 	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))

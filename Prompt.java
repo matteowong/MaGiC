@@ -93,7 +93,7 @@ public class Prompt {
         //System.out.print(question+": ");
         String in = promptWord(question);
         if (in.length() > 4 || !isAllDigsPegs(in)) {
-            System.out.println("Wrong! Stop cheating and try again");
+            System.out.print("That is not between 0 and 2, try again.");
 	    return getPegs(question);
         }
 

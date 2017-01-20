@@ -18,6 +18,11 @@ public class MasterMind {
 
     
     public static void play() {
+
+	System.out.println("Hello, you are now the MasterMind. You will input a final code in the format xxxx, made of integers 1-6, inclusive. After each guess the computer makes, you will give it the corresponding pegs. We suggest you write down your code so you don't forget.");
+	System.out.println("\nWhen inputting pegs, you only need to put the corresponding 1s and 2s. Remember: 1s mean the right color in the wrong place, and 2s mean the right color in the wrong place. You do not need to put 0s for completely wrong guesses, but if none of the digits in the guess are correct, you need to input one zero and hit enter.");
+
+
 	Game magic=new Game("hi");
 	makeGuess guess = new makeGuess();
 	System.out.println("Board \t Pegs \n");
@@ -39,14 +44,21 @@ public class MasterMind {
 	    int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
 	    boolean turnResult=magic.turn(retArr);
 	    int[] correctPegs=magic.getPegs()[magic.getTurn()-1];
-	    while (numTwos(userPegs)!=numTwos(correctPegs) ||
-		   numOnes(userPegs)!=numOnes(correctPegs)) {
+	    int z=0;
+	    while ((numTwos(userPegs)!=numTwos(correctPegs) ||
+		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=1) {
+		z+=1;
 		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
 	    }
 
 	    //have the user guess, check it, either say "choice is an illuion, or prompt to guess again, then continue with loop
 	    if (turnResult)
 		{
+
+		    //a repeat of print statements so if the computer gets it right it still prints
+		    if (z==2) {
+			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
+		    }
 		    System.out.println("Board \t Pegs \n");
 		    for (int i=0; i<magic.getTurn(); i++){
 			System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
@@ -56,7 +68,12 @@ public class MasterMind {
 		    break;
 		}
 
-	    System.out.println("Wrong, try again...");
+	    //if they input the pegs incorrectly 3 times the computer takes over
+	    if (z==2) {
+		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
+	    }
+
+	    System.out.println("Computer will try again");
 	    System.out.println("Board \t Pegs \n");
 	    for (int i=0; i<magic.getTurn(); i++){
 		System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
@@ -66,11 +83,11 @@ public class MasterMind {
 	}
 
 	if (magic.getTurn()==12) {
-            System.out.println("You lose");
+            System.out.println("You Win!");
             System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
 	}
 	else
-	    {System.out.println("Victory!");} 
+	    {System.out.println("You lose");} 
     }
 }
 
