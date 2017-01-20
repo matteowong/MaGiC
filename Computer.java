@@ -4,6 +4,7 @@ public class Computer extends Player{
     private int iter=0;
     private makeGuess algorithm=new makeGuess();
 
+    //generate a random combination for when the user plays as the guesser
     public int[] makeAnswer(){
 	int[] answer= new int[4];
 	for (int i=0; i<4; i++){
@@ -12,11 +13,11 @@ public class Computer extends Player{
 	return answer;
     }
 
+    //constructor for Computer
     public Computer(boolean mOrG) {
 	_masterOrGuesser = mOrG; //false means it is the master
-	//_gameBoard=new int[12][4];
-	//_pegsBoard=new int[12][4];
 	_currentTurn=0;
+	//if the computer is the master, it must generate a code 
 	if (mOrG)
 	    setFinal(makeAnswer()); 
     }

@@ -77,10 +77,7 @@ public abstract class Player {
 	_currentTurn+=1;
     }
 
-    //will set if instance of User or Computer is master or guesser
-    //    public void setMasterOrGuesser(boolean b);
-
-    //will set final guess
+    //sets final guess
     public int[] setFinal(int[] fin) {
 	_finalAns=fin;
 	return fin;
