@@ -9,12 +9,15 @@ public class Game {
     private int[] _correctAns= new int[4];
     private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
+    //To differentiate between constructors/game types, we made three of them. The default constructor takes no parameters and is called when the User is the guesser. The one that takes an integer is called for a two player game. The one that takes a String is for when the User is the mastermind
+
+
+    
     //for when user is guesser
     public Game() {
 	_guesser = new User();
 	_masterMind = new Computer(true);
-	//super confusing line follows: the correct answer is being set by the setFinal() method, which takes an int array. to generate a code the _masterMind must be typecasted to a Computer to run the makeAnswer() method
-	_correctAns=_masterMind.setFinal(((Computer)_masterMind).makeAnswer());
+	_correctAns=_masterMind.getFinal();
 	_turn=0;
     }
 
@@ -33,41 +36,55 @@ public class Game {
 	setFinalTwoPlayer();
     }
 
+
+    //sets the final answer for a TwoPlayer game or a MasterMind game. Used when the user has to input a final answer
+    //pre-con: none
+    //post-con: sets final answer to user input in the terminal
     public void setFinalTwoPlayer() {
 	System.out.println("Whoever is playing the mastermind should input their code");
-	_masterMind.setFinal(Prompt.getGuess("Input final code ", true));
+	_masterMind.setFinal(Prompt.getGuess("Input final code ", true));//true hides the input
     }
 
+
+    //accessor for board
     public int[][] getBoard() {
 	return _board;
     }
 
+    //accessor for pegs
     public int[][] getPegs() {
 	return _pegs;
     }
 
+
+    //this method allows a turn to be played
+    //pre-con: takes an int array as a guess
+    //post-con: returns boolean depending on if guess is correct
     public boolean turn(int[] guess) {
+	//following two lines give the _guesser a local copy of board and pegs, this is important for the Computer to make guesses
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());
-	_board[_turn]=_guesser.setGuess(guess);
-	_masterMind.setGuess(_board[_turn]);
-	_pegs[_turn]=_masterMind.givePegs();
+	_board[_turn]=_guesser.setGuess(guess);//sets guess in board
+	_masterMind.setGuess(_board[_turn]);//gives mastermind the guess
+	_pegs[_turn]=_masterMind.givePegs();//mastermind uses guess to give pegs
+	//again, following two lines are local copy if computer needs to generate a guess
 	_guesser.setGameBoard(getBoard());
 	_guesser.setPegsBoard(getPegs());
 	_guesser.setTurn();
 	_turn+=1;
-	if (_pegs[_turn-1][3]==2)
+	if (_pegs[_turn-1][3]==2)//checks if guess is correct
 	    return true;
 	else
 	    return false;
     }
 
 
-
+    //accessor for turn
     public int getTurn() {
 	return _turn;
     }
 
+    //accessor for final answer
     public int[] getFinal() {
         return _correctAns;
     }

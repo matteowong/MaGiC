@@ -82,4 +82,9 @@ public abstract class Player {
 	_finalAns=fin;
 	return fin;
     }
+
+    public int[] getFinal() {
+	return _finalAns;
+    }
+    
 }
