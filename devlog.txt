@@ -50,13 +50,13 @@ tales of wisdom gained...
 
 
 
- ______   ______   __   __   __       ______   _______     
-/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
- \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
-  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
-   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 
 
@@ -117,7 +117,7 @@ All :: Discussed how the algorithm will work and robustifying code so we don't n
 Matteo :: Continued thinking on algorithms and general problems, started algo specified in proposal
 Caleb :: Thought about the algorithm created late the night before, and realized it should work. Removed unnecessary sections,
          and added helpful comments so that teammates can also revise and look over it.
-Gilvir :: 
+Gilvir ::
 ==============================================================
 2017-01-16
 --------------------------------------------------------------
@@ -128,7 +128,7 @@ Caleb :: Fixed bug in algorithm, so now it works. Must test to see if it comes d
 2017-01-17
 --------------------------------------------------------------
 Matteo :: worked on testing MakeGuess.java in MasterMind.java, minor debugging in MasterMind
-Caleb :: Completed version of MasterMind.java, so that the computer guesses against itself, and generates its own pegs 
+Caleb :: Completed version of MasterMind.java, so that the computer guesses against itself, and generates its own pegs
          to test the algorithm... it works!
 Gilvir :: worked on hiding final answer
 ==============================================================
@@ -141,6 +141,6 @@ Gilvir :: Modified Prompt.java for the purposes of Woo.java, worked on hiding fi
 2017-01-19
 --------------------------------------------------------------
 Matteo :: finished MasterMind so it takes user input for pegs and trolls them
-Caleb :: Updated the printing of the game board, and updated MasterMind to take the user input for the pegs when the computer guesses. 
-Gilvir ::
+Caleb :: Updated the printing of the game board, and updated MasterMind to take the user input for the pegs when the computer guesses.
+Gilvir :: Modified prompts, fixed typos, added comments. Moved threaded masker back to Keyboard
 ==============================================================
