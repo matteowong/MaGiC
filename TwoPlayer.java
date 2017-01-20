@@ -3,11 +3,12 @@ public class TwoPlayer {
 
     public static void play() {
 	Game magic = new Game(1);
-    
+
 
 	while (magic.getTurn()<12) {
-	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))
+	    if (magic.turn(Prompt.getGuess("Input Guess Number "+(magic.getTurn()+1))))
 		{
+            //boolean calls cause the code to run
 		    break;
 		}
 
@@ -26,10 +27,10 @@ public class TwoPlayer {
 	}
 
 	if (magic.getTurn()==12)
-	    System.out.println("You lose");
+	    System.out.println("You lose!");
 	else
 	    System.out.println("Victory!");
-	
+
 
     }
 }

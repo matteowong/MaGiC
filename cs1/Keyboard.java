@@ -84,12 +84,13 @@ public class Keyboard
    //-----------------------------------------------------------------
    //  Gets the next input token, which may already have been read.
    //-----------------------------------------------------------------
-   private static String getNextToken (boolean skip)
+   private static String getNextToken (boolean skip) {return getNextToken(skip, false);}
+   private static String getNextToken (boolean skip, boolean hide)
    {
       String token;
 
       if (current_token == null)
-         token = getNextInputToken (skip);
+         token = getNextInputToken (skip, hide);
       else
       {
          token = current_token;
@@ -104,15 +105,18 @@ public class Keyboard
    //  current input line or a subsequent one. The parameter
    //  determines if subsequent lines are used.
    //-----------------------------------------------------------------
-   private static String getNextInputToken (boolean skip)
+   private static String getNextInputToken(boolean skip) { return getNextInputToken(skip, false);}
+   private static String getNextInputToken (boolean skip, boolean hide)
    {
       final String delimiters = " \t\n\r\f";
       String token = null;
       //THIS REPLACES ANY THREAD INPUT WITH "*"
-    //   Masker mask = new Masker();
-    //   Thread mask_thread = new Thread(mask);
+      Masker mask = new Masker();
+      Thread mask_thread = new Thread(mask);
     //   //this starts the thread outside of the rest of the code, so the while loop doesnt stop the rest from running
-    //   mask_thread.start();
+    if (hide) {
+      mask_thread.start();
+      }
       try
       {
          if (reader == null)
@@ -133,7 +137,8 @@ public class Keyboard
       {
          token = null;
       }
-    //   mask.stop();
+      mask.stop();
+
       return token;
    }
 
@@ -175,12 +180,13 @@ public class Keyboard
    //  Returns a space-delimited substring (a word) read from
    //  standard input.
    //-----------------------------------------------------------------
-   public static String readWord()
+   public static String readWord() {return readWord(false);}
+   public static String readWord(boolean hide)
    {
       String token;
       try
       {
-         token = getNextToken();
+         token = getNextToken(true, hide);
       }
       catch (Exception exception)
       {
@@ -318,4 +324,44 @@ public class Keyboard
       }
       return value;
    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//this is a class that effectively masks characters as they are entered
+//A Runnable is an interface that states
+//this allows it to update the loop that masks without getting stuck in it and preventing the code from running further
+//it's run on a special thread outside of the main one that executres seperately from the rest of the coded
+
+//how it works:
+//\010 is ascii for backspace, and so every milisecond it creates an * and then removes it
+class Masker implements Runnable {
+    private boolean isHide;
+    //this method is run it's own thread
+    public void run() {
+        isHide = true; //this is changed outside the thread when user input is done being taken
+        System.out.print(" ");
+        while (isHide) {
+            System.out.print("\010"+"*"); //this is a special escape character (simialr to unicode that java uses) this one is effectively a replacs
+            try {
+                Thread.currentThread().sleep(1); //this makes the thread it's running in stop for a milisecond, allowing it to be interupted externally
+            }
+            catch  (InterruptedException e) {
+                //this was the error generated. I'm guessing it means the thread waws interuppted incorrectly?
+            }
+        }
+    }
+    //this will keep running until something stops it by disabling isHide
+    public void stop() {
+        isHide = false;
+        System.out.print("\010"); //get rid of the last *
+    }
 }

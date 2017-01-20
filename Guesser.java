@@ -20,7 +20,8 @@ public class Guesser {
 
 	if (magic.getTurn()==12) {
             System.out.println("You lose");
-            System.out.println("The correct answer was");
+            //print the answer by getting the int[] from the game and then turning into a string
+            System.out.println("The correct answer was " + Prompt.arrToStr(magic.getFinal()));
     }
 	else
 	    {System.out.println("Victory!");}
