@@ -1,11 +1,27 @@
 import java.util.ArrayList;
 public class MasterMind {
+
+
+    public static int numTwos(int[] pegs) {
+	int ret=0;
+	for (int i:pegs)
+	    if (i==2) ret+=1;
+	return ret;
+    }
+
+    public static int numOnes(int[] pegs) {
+	int ret=0;
+	for (int i:pegs)
+	    if (i==1) ret+=1;
+	return ret;
+    }
+
     
     public static void play() {
 	Game magic=new Game("hi");
 	makeGuess guess = new makeGuess();
 	System.out.println("Board \t Pegs \n");
-    while (magic.getTurn()<12) {
+	while (magic.getTurn()<12) {
 	    int[] retArr={1,1,2,2};
 	    if (magic.getTurn()!=0){
 		int[] board = magic.getBoard()[magic.getTurn()-1];
@@ -18,9 +34,18 @@ public class MasterMind {
 		System.out.print(i);
 	    }
 	    System.out.println();
-        int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
+
+	    
+	    int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
+	    boolean turnResult=magic.turn(retArr);
+	    int[] correctPegs=magic.getPegs()[magic.getTurn()-1];
+	    while (numTwos(userPegs)!=numTwos(correctPegs) ||
+		   numOnes(userPegs)!=numOnes(correctPegs)) {
+		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
+	    }
+
 	    //have the user guess, check it, either say "choice is an illuion, or prompt to guess again, then continue with loop
-	    if (magic.turn(retArr ))
+	    if (turnResult)
 		{
 		    System.out.println("Board \t Pegs \n");
 		    for (int i=0; i<magic.getTurn(); i++){

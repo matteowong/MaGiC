@@ -42,6 +42,7 @@ public class Prompt {
         return ret;
     }
     public static String arrToStr(int[] arr) { return arrToStr(arr, "");}
+    
     public static boolean isAllDigs(String s) {
         for (int i = 0; i < s.length(); i++) {
             //if any substring of NUMS isnt found in the NUMS string, return false
@@ -51,6 +52,10 @@ public class Prompt {
         }
         return true;
     }
+
+
+
+    
     public static int[] getGuess(String question, boolean hidden) {
 
         //System.out.print(question+": ");
@@ -61,13 +66,13 @@ public class Prompt {
         }
         //just another check to see if its an int, this is kind of unnessary
         /*
-        try {
-            Integer.parseInt(in);
-        }
-        catch (Exception e) {
-            System.out.println(_correct);
-            return getGuess(question);
-        }
+	  try {
+	  Integer.parseInt(in);
+	  }
+	  catch (Exception e) {
+	  System.out.println(_correct);
+	  return getGuess(question);
+	  }
         */
         int[] retArr = new int[4];
         for (int i = 0; i < 4; i++) {
@@ -81,28 +86,36 @@ public class Prompt {
     }
 
 
+
+    public static boolean isAllDigsPegs(String s) {
+	String pegNums="012";
+        for (int i = 0; i < s.length(); i++) {
+            //if any substring of NUMS isnt found in the NUMS string, return false
+            if (pegNums.indexOf(s.substring(i,i+1)) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static int[] getPegs(String question) {
 
         //System.out.print(question+": ");
         String in = promptWord(question);
-        if (in.length() != 4 || !isAllDigs(in)) {
+        if (in.length() > 4 || !isAllDigsPegs(in)) {
             System.out.println("Wrong! Stop cheating and try again");
 	    return getPegs(question);
         }
 
-        int[] retArr = new int[4];
-        for (int i = 0; i < 4; i++) {
+        int[] retArr = new int[in.length()];
+        for (int i = 0; i < retArr.length; i++) {
             retArr[i] = Integer.parseInt(in.substring(i,i+1));
-	    if (retArr[i]>2 || retArr[i]<0) {
-		System.out.println("Wrong! Stop cheating and try again");
-		return getPegs(question);
-	    }
         }
         return retArr;
     }
 
 
-
+ 
 
 
 

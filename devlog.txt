@@ -140,7 +140,7 @@ Gilvir :: Modified Prompt.java for the purposes of Woo.java, worked on hiding fi
 ==============================================================
 2017-01-19
 --------------------------------------------------------------
-Matteo :: 
+Matteo :: finished MasterMind so it takes user input for pegs and trolls them
 Caleb :: Updated the printing of the game board, and updated MasterMind to take the user input for the pegs when the computer guesses. 
 Gilvir ::
 ==============================================================
