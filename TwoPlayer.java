@@ -27,9 +27,12 @@ public class TwoPlayer {
 		    //boolean calls cause the code to run
 		    break;
 		}
-	    if (z==2) {
+	    if (z==2 &&
+		(MasterMind.numTwos(userPegs)!=MasterMind.numTwos(correctPegs) || MasterMind.numOnes(userPegs) != MasterMind.numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
+		
 	    }
+
 
 	    System.out.println("Guess was wrong, try again...");
 	    System.out.println("Board \t Pegs \n");

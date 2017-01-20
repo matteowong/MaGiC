@@ -144,3 +144,8 @@ Matteo :: finished MasterMind so it takes user input for pegs and trolls them
 Caleb :: Updated the printing of the game board, and updated MasterMind to take the user input for the pegs when the computer guesses.
 Gilvir :: Modified prompts, fixed typos, added comments. Moved threaded masker back to Keyboard
 ==============================================================
+2017-01-20
+--------------------------------------------------------------
+Matteo :: worked on user inputting their pegs, made it happen a limited number of times
+Caleb :: also worked on pegs, cleaning up code, comments
+Gilvir :: threaded masker

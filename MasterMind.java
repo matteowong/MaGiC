@@ -56,7 +56,8 @@ public class MasterMind {
 		{
 
 		    //a repeat of print statements so if the computer gets it right it still prints
-		    if (z==2) {
+		    if (z==2 &&
+			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
 		    System.out.println("Board \t Pegs \n");
