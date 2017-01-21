@@ -149,3 +149,7 @@ Gilvir :: Modified prompts, fixed typos, added comments. Moved threaded masker b
 Matteo :: worked on user inputting their pegs, made it happen a limited number of times
 Caleb :: also worked on pegs, cleaning up code, comments
 Gilvir :: threaded masker
+==============================================================
+2017-01-20
+--------------------------------------------------------------
+Matteo :: fixed bug where you always lose on twelth turn, comments
