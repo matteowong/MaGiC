@@ -72,7 +72,7 @@ public class MasterMind {
 
 	    //checks if the pegs are right
 	    while ((numTwos(userPegs)!=numTwos(correctPegs) ||
-		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=1) {
+		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=0) {
 		z+=1;
 		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
 	    }
@@ -82,7 +82,7 @@ public class MasterMind {
 
 		    //a repeat of print statements so if the computer gets it right it still prints
 		    //this is if the user didn't input the right pegs
-		    if (z==2 &&
+		    if (z==1 &&
 			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
@@ -96,7 +96,7 @@ public class MasterMind {
 		}
 
 	    //if they input the pegs incorrectly 3 times the computer takes over
-	    if (z==2) {
+	    if (z==1&&(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 	    }
 

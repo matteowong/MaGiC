@@ -17,7 +17,7 @@ public class TwoPlayer {
 
 	    int z=0;
 	    while ((MasterMind.numTwos(userPegs)!=MasterMind.numTwos(correctPegs) ||
-		    MasterMind.numOnes(userPegs)!=MasterMind.numOnes(correctPegs))&&z<=1) {
+		    MasterMind.numOnes(userPegs)!=MasterMind.numOnes(correctPegs))&&z<=0) {
 		z+=1;		
 		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
 	    }
@@ -28,7 +28,7 @@ public class TwoPlayer {
 		    //boolean calls cause the code to run
 		    break;
 		}
-	    if (z==2 &&
+	    if (z==1 &&
 		(MasterMind.numTwos(userPegs)!=MasterMind.numTwos(correctPegs) || MasterMind.numOnes(userPegs) != MasterMind.numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		
