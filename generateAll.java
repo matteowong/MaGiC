@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class generateAll{
+
+    //this class is used to generate all the possibilities. It prints out the array so that we don't have to read it every time, which takes longer. Then we copy and pasted the output to a plain text  file
     public static void main(String[] args){
         ArrayList<ArrayList<Integer>> all = new ArrayList<ArrayList<Integer>>(1296);
         //for every first element, and then for every 2nd, then every third etc
@@ -19,7 +21,7 @@ public class generateAll{
             }
         }
 // all = arraylist of arrays
-// all contains arrays of [0,0,0,0] , [1,0,0,0] , [2,0,0,0] etc.
+// all contains arrays of [1,1,1,1] , [2,1,1,1] , [3,1,1,1] etc.
         System.out.println(all);
     }
 }

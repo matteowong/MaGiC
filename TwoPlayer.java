@@ -6,7 +6,7 @@ public class TwoPlayer {
 	System.out.println("Hello, this is a two player match. Decide who will be the mastermind. They will input a code in format xxxx, made of integers from 1-6, inclusive. Then the guesser will make guesses in the same format. We suggest you write down your code.");
 
 	Game magic = new Game(1);
-
+	boolean won=false;
 
 	while (magic.getTurn()<12) {
 
@@ -24,6 +24,7 @@ public class TwoPlayer {
 
 	    if (turnResult)
 		{
+		    won=true;
 		    //boolean calls cause the code to run
 		    break;
 		}
@@ -47,7 +48,7 @@ public class TwoPlayer {
 	    }
 	}
 
-	if (magic.getTurn()==12)
+	if (magic.getTurn()==12 && !won)
 	    System.out.println("You lose!");
 	else
 	    System.out.println("Victory!");
