@@ -44,7 +44,7 @@ public class TwoPlayer {
 		if (userPegs[0]==9999) {
 		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
 		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
-		    userPegs=Prompt.getPegs("There's a referesher. Try again");
+		    userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 		    continue;
 		}	
 		z+=1;

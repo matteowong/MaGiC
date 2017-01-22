@@ -25,6 +25,7 @@ public class MasterMind {
 	//instructions
 	System.out.println("Hello, you are now the MasterMind. You will input a final code in the format xxxx, made of integers 1-6, inclusive. After each guess the computer makes, you will give it the corresponding pegs. We suggest you write down your code so you don't forget.");
 	System.out.println("\nWhen inputting pegs, you only need to put the corresponding 1s and 2s. Remember: 1s mean the right color in the wrong place, and 2s mean the right color in the wrong place. You do not need to put 0s for completely wrong guesses, but if none of the digits in the guess are correct, you need to input one zero and hit enter.");
+	System.out.println("\nIf you forget your code, type 'help' when prompted for pegs");
 
 	//new Game
 	Game magic=new Game(1);
@@ -75,7 +76,7 @@ public class MasterMind {
 	    if (userPegs[0]==9999) {
 		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
 		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
-		userPegs=Prompt.getPegs("There's a referesher. Try again");
+		userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 	    }
 
 	    
@@ -87,7 +88,7 @@ public class MasterMind {
 		if (userPegs[0]==9999) {
 		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
 		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
-		    userPegs=Prompt.getPegs("There's a referesher. Try again");
+		    userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 		    continue;
 		}
 
