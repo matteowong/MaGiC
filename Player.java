@@ -3,8 +3,7 @@ import java.util.ArrayList;
 public abstract class Player {
     protected static int[] _currGuess = new int[4];
     protected static int[] _finalAns = new int[4]; //correct
-    protected int[] used = new int[4];
-    protected int removeFromTempAns;
+    private int removeFromTempAns;
     protected int _currentTurn;
     protected boolean _masterOrGuesser;
     protected int[][] _gameBoard;

@@ -7,7 +7,7 @@ public class Game {
     private int[][] _pegs= new int[12][4];
     private int _turn;
     private int[] _correctAns= new int[4];
-    private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
+    // private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
     //constructor, takes an int. 0 means player is guesser, 1 means computer is guesser, 2 means two player game
     //pre-con: int from 0-2
@@ -88,7 +88,7 @@ public class Game {
 
 
 
-
+    /*
     public static String searchColor(String key){
 	for (int i=1; i<7; i++){
 	    if (matching[i][1].equals(key))
@@ -102,7 +102,7 @@ public class Game {
             output.add(searchColor(input.get(i)));
         }
         return output; //NOTE: output is a string, so must still parse to get int
-    }
+	}*/
 
 
 

@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
 public class Computer extends Player{
-    private int iter=0;
-    private makeGuess algorithm=new makeGuess();
 
     //generate a random combination for when the user plays as the guesser
     //pre-con: none

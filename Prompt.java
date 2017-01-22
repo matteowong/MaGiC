@@ -5,6 +5,8 @@ public class Prompt {
     private static String _correct = "Please input a string in the format xxxx, where x is 1->6, inclusive";
     private static String _guess = "Please input a number 1-3, inclusive";
     private static String NUMS = "123456";
+
+    
     public static String promptWord(String question, boolean hidden) {
         String in = new String();
         System.out.print(question+": ");
@@ -128,15 +130,6 @@ public class Prompt {
 
     }
 
-    public static void print( int[][] a )
-    {
-	for (int i=0;i<a.length;i++){
-	    for (int j=0;j<a[i].length;j++) {
-		System.out.print(a[i][j]);
-	    }
-	    System.out.print("\n");
-
-	}
-    }
+ 
 
 }
