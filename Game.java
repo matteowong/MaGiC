@@ -38,15 +38,11 @@ public class Game {
     //pre-con: none
     //post-con: sets final answer to user input in the terminal
     public void setFinalTwoPlayer() {
-<<<<<<< HEAD
         //print reference
-    Prompt.reference();
-	System.out.println("Whoever is playing the mastermind should input their code.");
-	_correctAns=_masterMind.setFinal(Prompt.getGuess("Input final code (input masked)", true));//true hides the input
-=======
 	System.out.println("Whoever is playing the mastermind should input their code ... NOTE: The MaGiC code will not appear on the screen, so no cheating occurs ;)");
-	_correctAns=_masterMind.setFinal(Prompt.getGuess("Input final code ", true));//true hides the input
->>>>>>> 5c10556952f9f4d6f89e8dce1df7da9dc24860d8
+    Prompt.reference();
+    _correctAns=_masterMind.setFinal(Prompt.getGuess("Input final code (masked)", true));//true hides the input
+
     }
 
 

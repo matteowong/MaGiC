@@ -54,7 +54,7 @@ public class MasterMind {
 		    retArr[i]= newguess.get(i);
 	    }
 	    //prints out the guess
-        System.out.println(Prompt.arrToStr(magic.getBoard()[i], "", isFancy));
+        System.out.println(Prompt.arrToStr(retArr, "", isFancy));
 
 	    //asks the user to input their pegs
 	    int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
@@ -105,11 +105,9 @@ public class MasterMind {
 			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
-		    System.out.println("Board \t Pegs \n");
+		    System.out.println("Board \t\t Pegs \n");
 		    for (int i=0; i<magic.getTurn(); i++){
-			System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
-			//Prompt.print(magic.getBoard());
-			//Prompt.print(magic.getPegs());
+			System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i], "", true) +"\n");
 		    }
 		    break;
 		}
@@ -120,13 +118,13 @@ public class MasterMind {
 	    }
 
 	    System.out.println("Computer will try again");
-	    System.out.println("Board \t Pegs \n");
+	    System.out.println("Board \t\t Pegs \n");
 	    for (int i=0; i<magic.getTurn(); i++){
-		System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
+		System.out.println(Prompt.arrToStr(magic.getBoard()[i],"", true) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
 	    }
 	}
 
-	//if you win or lose
+	//if you win lose
 	if (magic.getTurn()==totalTurns && !turnResult) {
 	    System.out.println("You Win!");
 	    System.out.println("The correct answer was " + Prompt.arrToStr(magic.getFinal(),"", isFancy));
