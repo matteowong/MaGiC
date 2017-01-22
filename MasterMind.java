@@ -20,7 +20,7 @@ public class MasterMind {
     }
 
     
-    public static void play() {
+    public static void play(int totalTurns) {
 
 	//instructions
 	System.out.println("Hello, you are now the MasterMind. You will input a final code in the format xxxx, made of integers 1-6, inclusive. After each guess the computer makes, you will give it the corresponding pegs. We suggest you write down your code so you don't forget.");
@@ -39,7 +39,7 @@ public class MasterMind {
 	System.out.println("Board \t Pegs \n");
 
 	//checks that less than 12 turns have passed
-	while (magic.getTurn()<12) {
+	while (magic.getTurn()<totalTurns) {
 
 	    //retArr is the first guess. if it is turn 0 the computer guesses this, always
 	    int[] retArr={1,1,2,2};
@@ -129,7 +129,7 @@ public class MasterMind {
 	}
 
 	//if you win or lose
-	if (magic.getTurn()==12 && !turnResult) {
+	if (magic.getTurn()==totalTurns && !turnResult) {
 	    System.out.println("You Win!");
 	    System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
 	}

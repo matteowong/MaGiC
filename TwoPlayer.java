@@ -2,7 +2,7 @@
 public class TwoPlayer {
 
     //for a two player game
-    public static void play() {
+    public static void play(int totalTurns) {
 
 	//instructions
 	System.out.println("Hello, this is a two player match. Decide who will be the mastermind. They will input a code in format xxxx, made of integers from 1-6, inclusive. Then the guesser will make guesses in the same format. We suggest you write down your code. If you forget it, type 'help' when prompted to input pegs.");
@@ -15,7 +15,7 @@ public class TwoPlayer {
 	boolean won=false;
 
 	//checks for num turns being less than 12, the limit
-	while (magic.getTurn()<12) {
+	while (magic.getTurn()<totalTurns) {
 
 	    //if guess was correct
 	    boolean turnResult=magic.turn(Prompt.getGuess("Input Guess Number "+(magic.getTurn()+1)));
@@ -79,7 +79,7 @@ public class TwoPlayer {
 	    }
 	}
 
-	if (magic.getTurn()==12 && !won)
+	if (magic.getTurn()==totalTurns && !won)
 	    System.out.println("Guesser loses! Congrats, mastermind!");
 	else
 	    System.out.println("Victory to the  Guesser! Mastermind, your code was no good.");

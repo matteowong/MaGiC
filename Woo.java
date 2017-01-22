@@ -11,11 +11,23 @@ public class Woo {
 	System.out.println("2 if you want to be the MasterMind");
 	System.out.println("3 for a two player game");
 	int choice = Prompt.getChoice("Pick a number");
+	System.out.println();
+	System.out.println("Now, pick a difficulty.");
+	System.out.println("1 if you want the guesser to have 12 turns");
+	System.out.println("2 if you want the guesser to have 10 turns");
+	System.out.println("3 if you want the guesser to have 8 turns");
+	int difficulty=Prompt.getChoice("You decision");
+
+	//if statements turn input into number of turns
+	if (difficulty==1) difficulty=12;
+	else if (difficulty==2) difficulty=10;
+	else if (difficulty==3) difficulty=8;
+	
 	if (choice==1)
-	    Guesser.play();
+	    Guesser.play(difficulty);
 	else if (choice==2)
-	    MasterMind.play();
+	    MasterMind.play(difficulty);
 	else if (choice==3)
-	    TwoPlayer.play();
+	    TwoPlayer.play(difficulty);
     }
 }
