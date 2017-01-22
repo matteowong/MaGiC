@@ -168,4 +168,4 @@ Gilvir :: threaded masker
 ==============================================================
 2017-01-20
 --------------------------------------------------------------
-Matteo :: fixed bug where you always lose on twelth turn, comments
+Matteo :: fixed bug where you always lose on twelth turn, comments, UMLs, created help feature

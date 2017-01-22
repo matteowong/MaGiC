@@ -28,11 +28,28 @@ public class TwoPlayer {
 
 
 	    int z=0;
+
+	    //checks for help
+	    if (userPegs[0]==9999) {
+		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
+		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		userPegs=Prompt.getPegs("There's a referesher. Try again");
+	    }
+	    
 	    //compares user pegs to actual pegs, lets them have two guesses
 	    while ((MasterMind.numTwos(userPegs)!=MasterMind.numTwos(correctPegs) ||
-		    MasterMind.numOnes(userPegs)!=MasterMind.numOnes(correctPegs))&&z<=0) {
-		z+=1;		
-		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
+		    MasterMind.numOnes(userPegs)!=MasterMind.numOnes(correctPegs))&&z<=1) {
+
+		//checks for help
+		if (userPegs[0]==9999) {
+		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
+		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		    userPegs=Prompt.getPegs("There's a referesher. Try again");
+		    continue;
+		}	
+		z+=1;
+		if (z<=1)
+		    userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
 	    }
 	    //breaks out if you win
 	    if (turnResult)
@@ -42,7 +59,7 @@ public class TwoPlayer {
 		}
 
 	    //if user didn't input pegs right second time they are chastised
-	    if (z==1 &&
+	    if (
 		(MasterMind.numTwos(userPegs)!=MasterMind.numTwos(correctPegs) || MasterMind.numOnes(userPegs) != MasterMind.numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		

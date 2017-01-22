@@ -70,11 +70,31 @@ public class MasterMind {
 	    //counter. we don't want the user inputting pegs wrong a million times so they get 2 guesses
 	    int z=0;
 
+
+	    //checks for help
+	    if (userPegs[0]==9999) {
+		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
+		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		userPegs=Prompt.getPegs("There's a referesher. Try again");
+	    }
+
+	    
 	    //checks if the pegs are right
 	    while ((numTwos(userPegs)!=numTwos(correctPegs) ||
-		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=0) {
+		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=1) {
+
+		//checks for help again
+		if (userPegs[0]==9999) {
+		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
+		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		    userPegs=Prompt.getPegs("There's a referesher. Try again");
+		    continue;
+		}
+
+								  
 		z+=1;
-		userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
+		if (z<=1)
+		    userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
 	    }
 
 	    if (turnResult)//if turn was correct
@@ -82,7 +102,7 @@ public class MasterMind {
 
 		    //a repeat of print statements so if the computer gets it right it still prints
 		    //this is if the user didn't input the right pegs
-		    if (z==1 &&
+		    if (
 			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
@@ -96,7 +116,7 @@ public class MasterMind {
 		}
 
 	    //if they input the pegs incorrectly 3 times the computer takes over
-	    if (z==1&&(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
+	    if ((numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 	    }
 
@@ -109,8 +129,8 @@ public class MasterMind {
 
 	//if you win or lose
 	if (magic.getTurn()==12 && !turnResult) {
-            System.out.println("You Win!");
-            System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
+	    System.out.println("You Win!");
+	    System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
 	}
 	else
 	    {System.out.println("You lose, the computer got your code");} 
