@@ -5,7 +5,7 @@ public class Guesser {
     public static void play() {
 
 	//instantiates a new game using the proper constructor
-	Game magic = new Game();
+	Game magic = new Game(0);
 
 	//this checks against the case that you get the correct guess on your twelth turn
 	boolean won=false;

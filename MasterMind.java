@@ -27,7 +27,7 @@ public class MasterMind {
 	System.out.println("\nWhen inputting pegs, you only need to put the corresponding 1s and 2s. Remember: 1s mean the right color in the wrong place, and 2s mean the right color in the wrong place. You do not need to put 0s for completely wrong guesses, but if none of the digits in the guess are correct, you need to input one zero and hit enter.");
 
 	//new Game
-	Game magic=new Game("hi");
+	Game magic=new Game(1);
 
 	//new makeGuess, which is the class that generates computer guesses
 	makeGuess guess = new makeGuess();

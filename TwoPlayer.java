@@ -9,7 +9,7 @@ public class TwoPlayer {
 
 
 	//instantiates new game with int in constructor so it creates two Users 
-	Game magic = new Game(1);
+	Game magic = new Game(2);
 
 	//will be used to check if guess was correct, ensures that on the 12th guess you can still win
 	boolean won=false;

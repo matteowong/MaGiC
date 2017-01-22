@@ -9,31 +9,28 @@ public class Game {
     private int[] _correctAns= new int[4];
     private static String[][] matching = {{"1","blue"},{"2","red"},{"3","orange"},{"4","yellow"},{"5","purple"},{"6","brown"}};
 
-    //To differentiate between constructors/game types, we made three of them. The default constructor takes no parameters and is called when the User is the guesser. The one that takes an integer is called for a two player game. The one that takes a String is for when the User is the mastermind
-
-
-    
-    //for when user is guesser
-    public Game() {
-	_guesser = new User();
-	_masterMind = new Computer(true);
-	_correctAns=_masterMind.getFinal();
-	_turn=0;
-    }
-
-    //for two player    
-    public Game (int n) {
-	_guesser=new User();
-	_masterMind=new User();
-	_turn=0;
-	setFinalTwoPlayer();
-    }
-    //for when user is mastermind
-    public Game (String s) {
-	_guesser = new Computer(false);
-	_masterMind=new User();
-	_turn=0;
-	setFinalTwoPlayer();
+    //constructor, takes an int. 0 means player is guesser, 1 means computer is guesser, 2 means two player game
+    //pre-con: int from 0-2
+    //post-con: instantiates Game
+    public Game (int i) {
+	if (i==0) {//called by Guesser.java
+	    _guesser = new User();
+	    _masterMind = new Computer(true);
+	    _correctAns=_masterMind.getFinal();
+	    _turn=0;
+	}
+	else if (i==1) {//called by MasterMind.java
+	    _guesser = new Computer(false);
+	    _masterMind=new User();
+	    _turn=0;
+	    setFinalTwoPlayer();
+	}
+	else if (i==2) {//called by TwoPlayer.java
+	    _guesser=new User();
+	    _masterMind=new User();
+	    _turn=0;
+	    setFinalTwoPlayer();
+	}
     }
 
 
