@@ -38,7 +38,7 @@ the turn() method in Game.java wasn't generating the proper pegs. This was becau
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-The masking of user input of the final code automatically prints a * in the terminal
+
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -166,10 +166,12 @@ Matteo :: worked on user inputting their pegs, made it happen a limited number o
 Caleb :: also worked on pegs, cleaning up code, comments
 Gilvir :: threaded masker
 ==============================================================
-2017-01-20
+2017-01-21
 --------------------------------------------------------------
 Matteo :: fixed bug where you always lose on twelth turn, comments, UMLs, created help feature
 ==============================================================
-2017-01-21
+2017-01-22
 --------------------------------------------------------------
+All :: Looked back on everything accomplished, and smiled.
 Matteo :: added difficulties
+Caleb :: Updated instructions given to user. 
