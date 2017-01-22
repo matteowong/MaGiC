@@ -86,48 +86,4 @@ public class Game {
         return _correctAns;
     }
 
-
-
-    /*
-    public static String searchColor(String key){
-	for (int i=1; i<7; i++){
-	    if (matching[i][1].equals(key))
-		return matching[i][0];
-	}
-	return "";
-    }
-    public static ArrayList<String> translatorToNum(ArrayList<String> input){
-        ArrayList<String> output = new ArrayList<String>();
-        for (int i=0; i<input.size(); i++){
-            output.add(searchColor(input.get(i)));
-        }
-        return output; //NOTE: output is a string, so must still parse to get int
-	}*/
-
-
-
-
-    /*testing
-      public static void main(String[] args){
-      String[] x = new String[] {"blue","brown","orange","purple","blue","yellow"};
-      ArrayList<String> t = new ArrayList<String>();
-      for (String ret:x)
-      t.add(ret);
-      Game test=new Game();
-      System.out.println(test.translatorToNum(t)); //expect 1 6 3 5 1 4
-      Game magic = new Game();
-      int[] a = {0,1,2,3};
-      magic.turn(a);
-      for (int x:magic._correctAns)
-      System.out.print(x+",");
-      System.out.println();
-      for (int i:magic._board[0])
-      System.out.print(i+",");
-      System.out.println();
-      for (int j:magic._pegs[0])
-      System.out.print(j+",");
-      System.out.println();
-      }*/
-
-
 }
