@@ -19,15 +19,15 @@ public class MasterMind {
 	return ret;
     }
 
-    
-    public static void play(int totalTurns) {
+
+    public static void play(int totalTurns, boolean isFancy) {
 
 	//instructions
 	System.out.println("Hello, you are now the MasterMind. You will input a final code in the format xxxx, made of integers 1-6, inclusive. After each guess the computer makes, you will give it the corresponding pegs. We suggest you write down your code so you don't forget.");
 	System.out.println("\nWhen inputting pegs, you only need to put the corresponding 1s and 2s. Remember: 1s mean the right color in the wrong place, and 2s mean the right color in the wrong place. You do not need to put 0s for completely wrong guesses, but if none of the digits in the guess are correct, you need to input one zero and hit enter.");
 	System.out.println("\nIf you forget your code, type 'help' when prompted for pegs");
 
-	//new Game
+	//new Game with one player
 	Game magic=new Game(1);
 
 	//new makeGuess, which is the class that generates computer guesses
@@ -36,7 +36,7 @@ public class MasterMind {
 	boolean turnResult=false;
 
 	//print statement for board and pegs
-	System.out.println("Board \t Pegs \n");
+	System.out.println("Board \t\t Pegs \n");
 
 	//checks that less than 12 turns have passed
 	while (magic.getTurn()<totalTurns) {
@@ -54,12 +54,9 @@ public class MasterMind {
 		    retArr[i]= newguess.get(i);
 	    }
 	    //prints out the guess
-	    for (int i: retArr){
-		System.out.print(i);
-	    }
-	    System.out.println();
+        System.out.println(Prompt.arrToStr(magic.getBoard()[i], "", isFancy));
 
-	    //asks the user to input their pegs 
+	    //asks the user to input their pegs
 	    int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
 
 	    //makes a turn happen and sets the result of the turn( was the guess correct or not)
@@ -72,27 +69,28 @@ public class MasterMind {
 	    int z=0;
 
 
-	    //checks for help
+	    //checks if the user needs help
 	    if (userPegs[0]==9999) {
-		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
-		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal(), "", isFancy));
+        //last guess:  retriev board array, extract the last row thats been gone through, use blank deliminator, and whether fancy is enabled or not
+		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1],"",isFancy));
 		userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 	    }
 
-	    
+
 	    //checks if the pegs are right
 	    while ((numTwos(userPegs)!=numTwos(correctPegs) ||
 		    numOnes(userPegs)!=numOnes(correctPegs))&&z<=1) {
 
 		//checks for help again
 		if (userPegs[0]==9999) {
-		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal()));
-		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1]));
+		    System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal(), "", isFancy));
+		    System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1],"", isFancy));
 		    userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 		    continue;
 		}
 
-								  
+
 		z+=1;
 		if (z<=1)
 		    userPegs=Prompt.getPegs("Stop cheating! Please input the pegs for the above guess");
@@ -131,10 +129,9 @@ public class MasterMind {
 	//if you win or lose
 	if (magic.getTurn()==totalTurns && !turnResult) {
 	    System.out.println("You Win!");
-	    System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
+	    System.out.println("The correct answer was " + Prompt.arrToStr(magic.getFinal(),"", isFancy));
 	}
 	else
-	    {System.out.println("You lose, the computer got your code");} 
+	    {System.out.println("You lose, the computer got your code");}
     }
 }
-

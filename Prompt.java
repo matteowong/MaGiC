@@ -3,7 +3,6 @@ import cs1.Keyboard;
 public class Prompt {
     //ie keyboard.java
     private static String _correct = "Please input a string in the format xxxx, where x is 1->6, inclusive";
-    private static String _guess = "Please input a number 1-3, inclusive";
     private static final String NUMS = "123456";
     //these are the items printed instead of numbers on a windows machine:
     //square, triangle, circle, diamond, spade, heart, star
@@ -34,7 +33,6 @@ public class Prompt {
 
 
     //OUTPUT HELPERS
-    //turns Object[] into just a string with seperating string as optional second input
     public static void reference() {
         System.out.println("Symbol Guide:");
         for (int i = 1; i <= 6; i++) {
@@ -42,6 +40,9 @@ public class Prompt {
         }
         System.out.println();
     }
+    //turns int[] into just a string with seperating string as optional second input
+    //precond: int[] where every element is less than 7
+    //post cond: string version of the array with or without symbols or colors
     public static String arrToStr(int[] arr, String seperator, boolean fancy) {
         String ret = new String();
         //checks to see if the OS is windows
@@ -52,14 +53,16 @@ public class Prompt {
         //if fancy and os is unix or something else obscure, use colors
         if (fancy && !isWin) {
             for (int i = 0; i < arr.length; i++) {
-                ret += ""+ITEMS[arr[i]]+seperator;
+                ret += ""+ITEMS[arr[i]]+" "+seperator;
             }
         }
+        //of its a windows machine, just print colors without symbols
         else if (fancy && isWin) {
             for (int i = 0; i < arr.length; i++) {
-                ret += ""+ITEMS_WIN[arr[i]]+seperator;
+                ret += ""+ITEMS_WIN[arr[i]]+" "+seperator;
             }
         }
+        //if you just wanted the numbers, just add the numbers to a string
         else {
             for (int i = 0; i < arr.length; i++) {
                 ret += ""+arr[i]+seperator;
@@ -70,6 +73,8 @@ public class Prompt {
     }
 
 
+
+    //wrapper: no inputs = assume false
     public static String arrToStr(int[] arr) {
          return arrToStr(arr, "", false);
      }
@@ -118,15 +123,15 @@ public class Prompt {
             return getGuess(question, hidden);
         }
         //just another check to see if its an int, this is kind of unnessary
-        /*
-	  try {
-	  Integer.parseInt(in);
+
+	    try {
+	        Integer.parseInt(in);
+        }
+	    catch (Exception e) {
+	        System.out.println(_correct);
+	        return getGuess(question);
 	  }
-	  catch (Exception e) {
-	  System.out.println(_correct);
-	  return getGuess(question);
-	  }
-        */
+
         int[] retArr = new int[4];
         for (int i = 0; i < 4; i++) {
             retArr[i] = Integer.parseInt(in.substring(i,i+1));
@@ -175,24 +180,28 @@ public class Prompt {
 
 
 
-
-    public static int getChoice(String question) {
+    //ths gets an integer from 1->n
+    public static int getChoice(String question, int n) {
         String in = promptWord(question, false);
 
         try {
             Integer.parseInt(in);
         }
         catch (Exception e) {
-            System.out.println(_guess);
+            System.out.println("Please input a number 1-"+n+", inclusive");
             return getChoice(question);
         }
         int ret = Integer.parseInt(in);
-        if (ret > 3 || ret < 1) {
-            System.out.println(_guess);
+        if (ret > n || ret < 1) {
+            System.out.println("Please input a number 1-"+n+", inclusive");
             return getChoice(question);
         }
         return ret;
 
+    }
+    //opposite
+    public static int getChoice(String question) {
+        return getChoice(question, 3);
     }
 
 
