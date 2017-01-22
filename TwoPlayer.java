@@ -5,7 +5,7 @@ public class TwoPlayer {
     public static void play() {
 
 	//instructions
-	System.out.println("Hello, this is a two player match. Decide who will be the mastermind. They will input a code in format xxxx, made of integers from 1-6, inclusive. Then the guesser will make guesses in the same format. We suggest you write down your code.");
+	System.out.println("Hello, this is a two player match. Decide who will be the mastermind. They will input a code in format xxxx, made of integers from 1-6, inclusive. Then the guesser will make guesses in the same format. We suggest you write down your code. If you forget it, type 'help' when prompted to input pegs.");
 
 
 	//instantiates new game with int in constructor so it creates two Users 

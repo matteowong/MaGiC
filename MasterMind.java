@@ -115,7 +115,7 @@ public class MasterMind {
 		    break;
 		}
 
-	    //if they input the pegs incorrectly 3 times the computer takes over
+	    //if they input the pegs incorrectly 2 times the computer takes over
 	    if ((numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 		System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 	    }
