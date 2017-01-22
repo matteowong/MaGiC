@@ -1,6 +1,6 @@
 MaGiC
 Matteo Wong
-Caleb SMith-Salzberg
+Caleb Smith-Salzberg
 Gilvir Gill
 
 pd 1
@@ -24,28 +24,44 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
 
-There was a bug that caused things that should have been removed from the arrayList to not be removed.
-After a long time tracing, Caleb realized that there was an error that caused an else statement to be run when it should not have been
+Game.java was unable to make a local copy of the gameBoard and pegsBoard for an instance of Computer.java to make its own guesses (the computer needs local copies for the guessing algorithm). We fixed this by making the algorithm run directly from the MasterMind class, instead of within Computer, so no local copies were necessary (we just used the ones from the instance of class Game).
+
+In makeGuess.java, here was a bug that caused things that should have been removed from the arrayList to not be removed.
+After a long time tracing, we realized that there was an error that caused an else statement to be run when it should not have been
 This caused something to be wrong early on in the algorithm, and messed everything up.
 By adding the word "else" before the if, all problems were fixed!
+
+Player would always lose on the twelth turn due to an if statement with a BE checking currentTurn==12. Fixed by adding a boolean that would be set true if the guesser won and adding that to the if statement so you could still win on the twelth turn.
+
+the turn() method in Game.java wasn't generating the proper pegs. This was because the _masterMind didn't have a local copy of the current guess, so we added that and it worked. This was really frustrating even though the solution was absurdly simple.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+The masking of user input of the final code automatically prints a * in the terminal
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ArrayList of ArrayList is very helpful even if one is not even using the ArrayList-y part of the ArrayList... it helps with testing,
 and makes it easier to return ArrayLists :) .
 
+Using methods that ask the terminal for something inside of other methods is super useful (eg. calling Prompt.getGuess() inside of turn()). It is useful because it lets you ask the user and immediately put the input into a function without having to make any local variables. It is a little confusing to read, but if your methods and classes have good names it isn't that bad, and conceptually it is pretty awesome!
+
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
 
+We changed the guesses from 0-5 to 1-6 because an int array is initialized with all the values as 0, and it was useful to have that for writing some of the methods. Also for a user who isn't super comp-sci oriented, starting from 1 might be easier.
+
+We went for a different, more math-y algorithm. The one we wrote in the proposal involved a lot of booleans, if statements, and cases, and ended up being super confusing to try and code, so we scratched it. Instead, the new one just made a list of all the possible guesses and eliminated the ones that wouldn't work, eventually narrowing down to one guess. It has yet to lose!
+
+Changed MasterMind and TwoPlayer games (which have a human user as the mastermind) from the computer automatically giving the pegs to the user trying to put them in, which is more fun and has more user interaction. It was kind of weird just having the computer generate all of its guesses and print them all in ~1 second.
+
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+Trio!=duo+1;
+Trio==Math.pow(duo, 100);
 ||||||||||||||||||||||||||||||||||||||||||
 
 
