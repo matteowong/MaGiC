@@ -113,7 +113,7 @@ public class MasterMind {
             System.out.println("The correct answer was " + magic.getFinal()[0]+magic.getFinal()[1]+magic.getFinal()[2]+magic.getFinal()[3]);
 	}
 	else
-	    {System.out.println("You lose");} 
+	    {System.out.println("You lose, the computer got your code");} 
     }
 }
 
