@@ -50,14 +50,15 @@ UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 
-colors (fancy mode) don’t work on windows
-unicode doesn't render properly in cmd prompt (fancy mode)
+Colors (fancy mode) don’t work on windows
+
+Unicode doesn't render properly in cmd prompt (fancy mode)
+
 Windows in general
 
-Password masking system deletes one more character than it should making it render an extra symbol
-this made it look hideious with astericks so we had to use the more confusing spaces
+Password masking system deletes one more character than it should making it render an extra symbol. This made it look hideious with astericks so we had to use the more confusing spaces
 
-users must enter a zero even when there are no matching elements. For most cases, the zeroes can be ignored and only the "meaningful numbers of one and two are entered.
+Users must enter a zero even when there are no matching elements. For most cases, the zeroes can be ignored and only the "meaningful numbers of one and two are entered.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,9 +88,9 @@ Changed MasterMind and TwoPlayer games (which have a human user as the mastermin
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tales of wisdom gained...
 java is really nice of how specific signatures are and how easy it is to explain to people writing other parts
 how to use the method you wrote (50x less painful than the Python project)
-tales of wisdom gained...
 Do not make a new folder for every day! Github does that for you!
 Computers are better than humans (at least at mastermind)
 Trio!=duo+1;//returns true
