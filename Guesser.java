@@ -39,6 +39,7 @@ public class Guesser {
 	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))
 		{
 		    won=true;
+		    printBoard(isFancy, magic);
 		    break;
 		}
 
