@@ -175,3 +175,5 @@ Matteo :: fixed bug where you always lose on twelth turn, comments, UMLs, create
 All :: Looked back on everything accomplished, and smiled.
 Matteo :: added difficulties
 Caleb :: Updated instructions given to user. 
+Gilvir :: made fancy mode, fixed masking feature, made printBoard statement
+All :: bugs, UMLs, flow charts, devlog
