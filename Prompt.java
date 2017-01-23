@@ -34,9 +34,21 @@ public class Prompt {
 
     //OUTPUT HELPERS
     public static void reference() {
+        String OS = System.getProperty("os.name").toLowerCase();
+        //returns true/false depending on whether or not the string win is in the version, as windows doesn't natively support colors via this method
+        boolean isWin = OS.indexOf("win") >= 0;
+        //for every element, add it to the return string with the delim
+        //if fancy and os is unix or something else obscure, use colors
         System.out.println("Symbol Guide:");
-        for (int i = 1; i <= 6; i++) {
-            System.out.print(i +": " + ITEMS[i] + "\t");
+        if (!isWin) {
+            for (int i = 1; i <= 6; i++) {
+                System.out.print(i +": " + ITEMS[i] + "\t");
+            }
+        }
+        else {
+            for (int i = 1; i <= 6; i++) {
+                System.out.print(i +": " + ITEMS_WIN[i] + "\t");
+            }
         }
         System.out.println();
     }
