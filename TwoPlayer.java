@@ -1,6 +1,21 @@
 
 public class TwoPlayer {
 
+    //board printer
+    private static void printBoard(boolean fancy, Game game) {
+        //if its fancy, include the reference
+        if (fancy) {
+            Prompt.reference();
+            System.out.println("Board \t\tPegs \n");
+        }
+        else {
+            System.out.println("Board \t Pegs \n");
+        }
+        for (int i=0; i<game.getTurn(); i++){
+            System.out.println(Prompt.arrToStr(game.getBoard()[i],"", fancy) + "\t" + Prompt.arrToStr(game.getPegs()[i]) +"\n");
+        }
+    }
+
     //for a two player game
     public static void play(int totalTurns, boolean isFancy) {
 
@@ -69,15 +84,8 @@ public class TwoPlayer {
 	    }
 	    //print statements
 	    System.out.println("Guess was wrong, try again...");
-        Prompt.reference();
-        //print statements for the Board and Pegs
-	    System.out.println("Board \t\t Pegs \n");
-	    //prints board and pegs next to eaechother
-	    for (int i=0; i<magic.getTurn(); i++){
-		System.out.println(Prompt.arrToStr(magic.getBoard()[i], "", isFancy) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
-
-        }
-	}
+        printBoard(isFancy, magic);
+    	}
 
 	if (magic.getTurn()==totalTurns && !won)
 	    System.out.println("Guesser loses! Congrats, mastermind!");

@@ -32,7 +32,7 @@ public class Woo {
 	     if (difficulty==1) difficulty=12;
 	else if (difficulty==2) difficulty=10;
 	else if (difficulty==3) difficulty=8 ;
-    else if (difficulty==4) difficulty=5 ;
+    else if (difficulty==4) difficulty=4 ;
     //if 1, true, if 2 false
     boolean isFancy = (graphics == 1);
 

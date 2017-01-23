@@ -18,7 +18,19 @@ public class MasterMind {
 	    if (i==1) ret+=1;
 	return ret;
     }
-
+    private static void printBoard(boolean fancy, Game game) {
+        //if its fancy, include the reference
+        if (fancy) {
+            Prompt.reference();
+            System.out.println("Board \t\tPegs \n");
+        }
+        else {
+            System.out.println("Board \t Pegs \n");
+        }
+        for (int i=0; i<game.getTurn(); i++){
+            System.out.println(Prompt.arrToStr(game.getBoard()[i],"", fancy) + "\t" + Prompt.arrToStr(game.getPegs()[i]) +"\n");
+        }
+    }
 
     public static void play(int totalTurns, boolean isFancy) {
 
@@ -35,7 +47,7 @@ public class MasterMind {
 
 	boolean turnResult=false;
 
-	//print statement for board and pegs
+	//print statement for board and pegs hard coded for first case
 	System.out.println("Board \t\t Pegs \n");
 
 	//checks that less than 12 turns have passed
@@ -69,7 +81,7 @@ public class MasterMind {
 	    int z=0;
 
 
-	    //checks if the user needs help
+ //checks if the user needs help
 	    if (userPegs[0]==9999) {
 		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal(), "", isFancy));
         //last guess:  retriev board array, extract the last row thats been gone through, use blank deliminator, and whether fancy is enabled or not
@@ -105,11 +117,7 @@ public class MasterMind {
 			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
-		    System.out.println("Board \t\t Pegs \n");
-		    for (int i=0; i<magic.getTurn(); i++){
-			System.out.println(Prompt.arrToStr(magic.getBoard()[i]) + "\t" + Prompt.arrToStr(magic.getPegs()[i], "", true) +"\n");
-		    }
-		    break;
+            printBoard(isFancy, magic);
 		}
 
 	    //if they input the pegs incorrectly 2 times the computer takes over
@@ -118,10 +126,7 @@ public class MasterMind {
 	    }
 
 	    System.out.println("Computer will try again");
-	    System.out.println("Board \t\t Pegs \n");
-	    for (int i=0; i<magic.getTurn(); i++){
-		System.out.println(Prompt.arrToStr(magic.getBoard()[i],"", true) + "\t" + Prompt.arrToStr(magic.getPegs()[i]) +"\n");
-	    }
+        printBoard(isFancy, magic);
 	}
 
 	//if you win lose
