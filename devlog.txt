@@ -38,6 +38,7 @@ the turn() method in Game.java wasn't generating the proper pegs. This was becau
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
+colors (fancy mode) don’t work on windows
 
 
 COOL STUFF LEARNED
@@ -60,8 +61,8 @@ Changed MasterMind and TwoPlayer games (which have a human user as the mastermin
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
-Trio!=duo+1;
-Trio==Math.pow(duo, 100);
+Trio!=duo+1;//returns true
+Trio==duo*100;//returns true
 ||||||||||||||||||||||||||||||||||||||||||
 
 
