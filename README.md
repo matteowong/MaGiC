@@ -11,4 +11,4 @@
 Our game is a remake of the 70s classic game "Mastermind." 
 The user can either play as the guesser, or the mastermind, and will try his/her best
 to defeat the opponent, be it a computer, or another human being. More instructions regarding
-the game are found in the intro when playing the game... or read 
+the game are found in the intro when playing the game... or read [this](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Gameplay_and_rules)
