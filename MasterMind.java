@@ -66,7 +66,7 @@ public class MasterMind {
 		    retArr[i]= newguess.get(i);
 	    }
 	    //prints out the guess
-        System.out.println(Prompt.arrToStr(retArr, "", isFancy));
+	    System.out.println(Prompt.arrToStr(retArr, "", isFancy));
 
 	    //asks the user to input their pegs
 	    int[] userPegs = Prompt.getPegs("Please input the pegs for the above guess");
@@ -81,10 +81,10 @@ public class MasterMind {
 	    int z=0;
 
 
- //checks if the user needs help
+	    //checks if the user needs help
 	    if (userPegs[0]==9999) {
 		System.out.println("Your code: "+Prompt.arrToStr(magic.getFinal(), "", isFancy));
-        //last guess:  retriev board array, extract the last row thats been gone through, use blank deliminator, and whether fancy is enabled or not
+		//last guess:  retriev board array, extract the last row thats been gone through, use blank deliminator, and whether fancy is enabled or not
 		System.out.println("Last guess: "+Prompt.arrToStr(magic.getBoard()[magic.getTurn()-1],"",isFancy));
 		userPegs=Prompt.getPegs("There's a referesher. Remember, 1s  correspond to the right number in the wrong place, and 2s are the right number in the right place. Try again");
 	    }
@@ -117,7 +117,8 @@ public class MasterMind {
 			(numTwos(userPegs)!=numTwos(correctPegs) || numOnes(userPegs) != numOnes(correctPegs))) {
 			System.out.println("You clearly cannot input pegs. The computer has done it for you\n");
 		    }
-            printBoard(isFancy, magic);
+		    printBoard(isFancy, magic);
+		    break;
 		}
 
 	    //if they input the pegs incorrectly 2 times the computer takes over
@@ -126,7 +127,7 @@ public class MasterMind {
 	    }
 
 	    System.out.println("Computer will try again");
-        printBoard(isFancy, magic);
+	    printBoard(isFancy, magic);
 	}
 
 	//if you win lose
