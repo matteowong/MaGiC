@@ -31,6 +31,8 @@ After a long time tracing, we realized that there was an error that caused an el
 This caused something to be wrong early on in the algorithm, and messed everything up.
 By adding the word "else" before the if, all problems were fixed!
 
+The Board would only print after the first guess. After many-a-trace, we realized a print statemeny is needed BEFORE the guessing while loop.
+
 Player would always lose on the twelth turn due to an if statement with a BE checking currentTurn==12. Fixed by adding a boolean that would be set true if the guesser won and adding that to the if statement so you could still win on the twelth turn.
 
 the turn() method in Game.java wasn't generating the proper pegs. This was because the _masterMind didn't have a local copy of the current guess, so we added that and it worked. This was really frustrating even though the solution was absurdly simple.
@@ -38,13 +40,16 @@ the turn() method in Game.java wasn't generating the proper pegs. This was becau
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
+
 colors (fancy mode) don’t work on windows
 
+users must enter a zero even when there are no matching elements. For most cases, the zeroes can be ignored and only the "meaningful numbers of one and two are entered.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ArrayList of ArrayList is very helpful even if one is not even using the ArrayList-y part of the ArrayList... it helps with testing,
-and makes it easier to return ArrayLists :) .
+ArrayList of ArrayList is very helpful even if one is not even using the ArrayList-y part of the ArrayList... it helps with testing, and makes it easier to return ArrayLists :) .
+
+Making logical method names and inputs that describe what the method does is invaluable when looking back on old code, especially if it isn't extremely commented.
 
 Using methods that ask the terminal for something inside of other methods is super useful (eg. calling Prompt.getGuess() inside of turn()). It is useful because it lets you ask the user and immediately put the input into a function without having to make any local variables. It is a little confusing to read, but if your methods and classes have good names it isn't that bad, and conceptually it is pretty awesome!
 
@@ -61,6 +66,8 @@ Changed MasterMind and TwoPlayer games (which have a human user as the mastermin
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+Do not make a new folder for every day! Github does that for you!
+Computers are better than humans (at least at mastermind)
 Trio!=duo+1;//returns true
 Trio==duo*100;//returns true
 ||||||||||||||||||||||||||||||||||||||||||
@@ -175,6 +182,6 @@ Matteo :: fixed bug where you always lose on twelth turn, comments, UMLs, create
 --------------------------------------------------------------
 All :: Looked back on everything accomplished, and smiled.
 Matteo :: added difficulties
-Caleb :: Updated instructions given to user. 
+Caleb :: Updated instructions given to user. Randomized selection from the makeGuess algorithm.
 Gilvir :: made fancy mode, fixed masking feature, made printBoard statement
 All :: bugs, UMLs, flow charts, devlog
