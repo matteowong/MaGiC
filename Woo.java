@@ -25,7 +25,7 @@ public class Woo {
 	System.out.println("1: If you want the guesser to have 12 turns");
 	System.out.println("2: If you want the guesser to have 10 turns");
 	System.out.println("3: If you want the guesser to have 8 turns");
-    System.out.println("4: If you want the guesser to have 5 turns");
+    System.out.println("4: If you want the guesser to have 4 turns");
 	int difficulty=Prompt.getChoice("You decision",4);
 
 	//if statements turn input into number of turns
