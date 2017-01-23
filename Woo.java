@@ -8,7 +8,7 @@ public class Woo {
 	System.out.println("If all the pegs are 2s, then every peg is the correct color, in the correct position, and the guesser has won.");
 	System.out.println("Enjoy!");
 	System.out.println();
-    System.out.println("Would you like to enable fancy mode?");
+    System.out.println("Would you like to enable fancy mode? Note: doesn't work in windows");
     System.out.println("1: Yes");
     System.out.println("2: No");
     int graphics = Prompt.getChoice("Pick a number",2);
