@@ -50,7 +50,7 @@ public class makeGuess{
          return (matches!=perf);
     }
 
-
+    //counts the pegs, runs the information through the checking methods
     public int match(int index, ArrayList<Integer> checking, int[] lastG, int red, int white){
         int total = red +white;
         if (noperfmatch(checking, lastG, red)){
@@ -64,7 +64,7 @@ public class makeGuess{
         return 1;
     }
 
-
+    //counts pegs of each type, calls the match method with the new information
     public int check(int index, ArrayList<Integer> checking, int[] lastG, int[] pegs){
         //count the pegs of each type
         int red=0;
@@ -85,9 +85,10 @@ public class makeGuess{
     public ArrayList<Integer> guess(int[] lastG, int[] pegs){
         int i=0;
         while (i<narrow.size()){
+            //index it if the checked item is not removed, otherwise do not index
             i+=check(i, narrow.get(i), lastG, pegs); //checks each part of narrow
         }
         //return the first element of the updated narrow
-	return narrow.get(0);
+	return narrow.get((int)(Math.random()*narrow.size()));
     }
 }
