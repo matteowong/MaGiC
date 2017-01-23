@@ -189,12 +189,12 @@ public class Prompt {
         }
         catch (Exception e) {
             System.out.println("Please input a number 1-"+n+", inclusive");
-            return getChoice(question);
+            return getChoice(question, n);
         }
         int ret = Integer.parseInt(in);
         if (ret > n || ret < 1) {
             System.out.println("Please input a number 1-"+n+", inclusive");
-            return getChoice(question);
+            return getChoice(question, n );
         }
         return ret;
 
