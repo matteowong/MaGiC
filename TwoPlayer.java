@@ -73,6 +73,7 @@ public class TwoPlayer {
 	    if (turnResult)
 		{
 		    won=true;
+		    printBoard(isFancy, magic);
 		    break;
 		}
 
@@ -86,6 +87,8 @@ public class TwoPlayer {
 	    System.out.println("Guess was wrong, try again...");
         printBoard(isFancy, magic);
     	}
+
+	//if you win/lose
 
 	if (magic.getTurn()==totalTurns && !won)
 	    System.out.println("Guesser loses! Congrats, mastermind!");

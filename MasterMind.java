@@ -131,6 +131,7 @@ public class MasterMind {
 	}
 
 	//if you win lose
+
 	if (magic.getTurn()==totalTurns && !turnResult) {
 	    System.out.println("You Win!");
 	    System.out.println("The correct answer was " + Prompt.arrToStr(magic.getFinal(),"", isFancy));
