@@ -32,9 +32,9 @@ public class Guesser {
 	//the BE in the while loop checks if 12 turns have passed
 	while (magic.getTurn()<totalTurns) {
         //if fancy mode is enabled, print the reference guide
-        if (isFancy) {
+	    if (isFancy&&magic.getTurn()==0) {
             Prompt.reference();
-        }
+	    }
 	    //magic.turn() returns true if the guess is correct. Prompt.getGuess() gets a guess from the user. The message inside is just a prompt for the user. This line takes user input using Promptp.getGuess() and puts it into turn()
 	    if (magic.turn(Prompt.getGuess("Input guess number "+(magic.getTurn()+1))))
 		{

@@ -32,7 +32,7 @@ public class TwoPlayer {
 	//checks for num turns being less than 12, the limit
 	while (magic.getTurn()<totalTurns) {
         //if fancy mode is enabled, print the reference
-        if (isFancy) {
+	    if (isFancy&&magic.getTurn()==0) {
             Prompt.reference();
         }
         //if guess was correct

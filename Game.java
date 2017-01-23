@@ -40,7 +40,6 @@ public class Game {
     public void setFinalTwoPlayer() {
         //print reference
 	System.out.println("Whoever is playing the mastermind should input their code ... NOTE: The MaGiC code will not appear on the screen, so no cheating occurs ;)");
-    Prompt.reference();
     _correctAns=_masterMind.setFinal(Prompt.getGuess("Input final code (masked)", true));//true hides the input
 
     }
