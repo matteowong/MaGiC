@@ -35,13 +35,27 @@ The Board would only print after the first guess. After many-a-trace, we realize
 
 Player would always lose on the twelth turn due to an if statement with a BE checking currentTurn==12. Fixed by adding a boolean that would be set true if the guesser won and adding that to the if statement so you could still win on the twelth turn.
 
+In two player mode, you could see what the other person entered. We overcame this by basically
+actively deleting what the user input from the terminal using the Masker class we wrote
+
 the turn() method in Game.java wasn't generating the proper pegs. This was because the _masterMind didn't have a local copy of the current guess, so we added that and it worked. This was really frustrating even though the solution was absurdly simple.
 
+In two player mode, you could see what the other person entered. We overcame this by basicallyactively deleting what the user input from the terminal using the Masker class we wrote
+
+Unicode doesn't render properly in cmd prompt (fancy mode) Windows in general.
+
+Password masking system deletes one more character than it should making it render an extra symbol. This made it look hideious with astericks so we had to use the more confusing spaces
+ 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 
 colors (fancy mode) don’t work on windows
+unicode doesn't render properly in cmd prompt (fancy mode)
+Windows in general
+
+Password masking system deletes one more character than it should making it render an extra symbol
+this made it look hideious with astericks so we had to use the more confusing spaces
 
 users must enter a zero even when there are no matching elements. For most cases, the zeroes can be ignored and only the "meaningful numbers of one and two are entered.
 
@@ -53,6 +67,12 @@ Making logical method names and inputs that describe what the method does is inv
 
 Using methods that ask the terminal for something inside of other methods is super useful (eg. calling Prompt.getGuess() inside of turn()). It is useful because it lets you ask the user and immediately put the input into a function without having to make any local variables. It is a little confusing to read, but if your methods and classes have good names it isn't that bad, and conceptually it is pretty awesome!
 
+ESCAPE CHARACTERS: unicode for cool symbols, ascii backspace escape character lets u remove the last thing in terminal, ANSI implementations in Unix lets you use colors in bash terminals
+
+Threads: You can run parts of the code independent of the main part by treating it as a java object that is a Runnable
+this lets you do stuff like have a while loop that always runs without hanging up all the code
+this is what we did for masking the password because it seemed fun to figure out how to do and it didn't
+involve any external libraries. This was mind boggling and life changing.
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
@@ -63,8 +83,12 @@ We went for a different, more math-y algorithm. The one we wrote in the proposal
 
 Changed MasterMind and TwoPlayer games (which have a human user as the mastermind) from the computer automatically giving the pegs to the user trying to put them in, which is more fun and has more user interaction. It was kind of weird just having the computer generate all of its guesses and print them all in ~1 second.
 
+
+
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+java is really nice of how specific signatures are and how easy it is to explain to people writing other parts
+how to use the method you wrote (50x less painful than the Python project)
 tales of wisdom gained...
 Do not make a new folder for every day! Github does that for you!
 Computers are better than humans (at least at mastermind)
@@ -182,6 +206,11 @@ Matteo :: fixed bug where you always lose on twelth turn, comments, UMLs, create
 --------------------------------------------------------------
 All :: Looked back on everything accomplished, and smiled.
 Matteo :: added difficulties
+<<<<<<< HEAD
 Caleb :: Updated instructions given to user. Randomized selection from the makeGuess algorithm.
 Gilvir :: made fancy mode, fixed masking feature, made printBoard statement
+=======
+Caleb :: Updated instructions given to user.
+Gilvir :: made fancy mode, fixed masking feature, made printBoard statement, fixed prompting bugs and simplified some interface code
+>>>>>>> 617ef4bb8e7e7bd8da75bc999007b5127d01c0ce
 All :: bugs, UMLs, flow charts, devlog
